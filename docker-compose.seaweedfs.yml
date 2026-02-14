@@ -1,0 +1,48 @@
+services:
+  seaweedfs:
+    image: chrislusf/seaweedfs:latest
+    command: >
+      server -master.port=9333 -volume.port=8080 -filer -s3 -s3.port=8333 -s3.config=/etc/seaweedfs/s3.json
+    ports:
+      - "8333:8333"
+    volumes:
+      - seaweedfs_data:/data
+      - ./seaweedfs/s3.json:/etc/seaweedfs/s3.json:ro
+    restart: unless-stopped
+
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.0
+    command:
+      - etcd
+      - --advertise-client-urls=http://127.0.0.1:2379
+      - --listen-client-urls=http://0.0.0.0:2379
+      - --data-dir=/etcd-data
+    ports:
+      - "2379:2379"
+    volumes:
+      - etcd_data:/etcd-data
+    restart: unless-stopped
+
+  milvus:
+    image: milvusdb/milvus:v2.3.4
+    command: [ "milvus", "run", "standalone" ]
+    environment:
+      ETCD_ENDPOINTS: etcd:2379
+      MINIO_ADDRESS: seaweedfs:8333
+      MINIO_ACCESS_KEY_ID: admin
+      MINIO_SECRET_ACCESS_KEY: adminadmin
+      MINIO_USE_SSL: "false"
+    ports:
+      - "19530:19530"
+      - "9091:9091"
+    volumes:
+      - milvus_data:/var/lib/milvus
+    depends_on:
+      - etcd
+      - seaweedfs
+    restart: unless-stopped
+
+volumes:
+  seaweedfs_data:
+  etcd_data:
+  milvus_data:
