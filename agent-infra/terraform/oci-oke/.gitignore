@@ -1,0 +1,17 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+*.tfvars
+!terraform.tfvars.example
+
+# Credentials
+*.pem
+
+# Generated
+kubeconfig
+*.kubeconfig
+
+# Backup
+*.backup

@@ -1,0 +1,30 @@
+# OCI Credentials
+# Get these from OCI Console -> Identity -> Users -> API Keys
+tenancy_ocid       = "ocid1.tenancy.oc1..xxxxxxxxxxxx"
+user_ocid          = "ocid1.user.oc1..xxxxxxxxxxxx"
+compartment_ocid   = "ocid1.compartment.oc1..xxxxxxxxxxxx"
+region             = "us-ashburn-1"
+fingerprint        = "xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx"
+private_key_path   = "/path/to/your/private_key.pem"
+
+# VCN Configuration
+vcn_name           = "agentic-rag-vcn"
+vcn_cidr           = "10.0.0.0/16"
+
+# Subnet Configuration
+subnet_cidrs = {
+  "public_lb"   = "10.0.10.0/24"
+  "private_k8s" = "10.0.20.0/24"
+}
+
+# OKE Cluster Configuration
+cluster_name       = "agentic-rag-cluster"
+kubernetes_version = "v1.28.2"
+pods_cidr          = "10.244.0.0/16"
+services_cidr      = "10.96.0.0/16"
+
+# Node Pool Configuration
+node_shape         = "VM.Standard.E4.Flex"
+node_count         = 3
+ocpus_per_node     = 2
+memory_per_node    = 32
