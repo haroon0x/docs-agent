@@ -1,0 +1,144 @@
+{
+  "description": "Golden test queries for retrieval benchmarking",
+  "version": "1.0",
+  "queries": [
+    {
+      "id": "kfp-install",
+      "query": "How to install Kubeflow Pipelines",
+      "expected_doc_ids": [
+        "content/en/docs/pipelines/install.md",
+        "content/en/docs/pipelines/installation.md"
+      ],
+      "keywords": ["install", "pipelines", "kubectl", "helm"],
+      "category": "installation"
+    },
+    {
+      "id": "kserve-canary",
+      "query": "KServe InferenceService canary deployment",
+      "expected_doc_ids": [
+        "content/en/docs/kserve/deploy.md",
+        "content/en/docs/kserve/canary.md"
+      ],
+      "keywords": ["kserve", "canary", "inferenceservice", "traffic"],
+      "category": "deployment"
+    },
+    {
+      "id": "kfp-v2-sdk",
+      "query": "KFP v2 SDK compile",
+      "expected_doc_ids": [
+        "content/en/docs/pipelines/v2/sdk.md",
+        "content/en/docs/pipelines/v2/compile.md"
+      ],
+      "keywords": ["v2", "sdk", "compile", "dsl"],
+      "category": "sdk"
+    },
+    {
+      "id": "katib-hp",
+      "query": "Katib hyperparameter search",
+      "expected_doc_ids": [
+        "content/en/docs/katib/hp-search.md"
+      ],
+      "keywords": ["katib", "hyperparameter", "tuning"],
+      "category": "experimentation"
+    },
+    {
+      "id": "notebooks-setup",
+      "query": "Kubeflow Notebooks setup",
+      "expected_doc_ids": [
+        "content/en/docs/notebooks/setup.md"
+      ],
+      "keywords": ["notebooks", "jupyter", "hub"],
+      "category": "platform"
+    },
+    {
+      "id": "kserve-scale-zero",
+      "query": "KServe scale to zero",
+      "expected_doc_ids": [
+        "content/en/docs/kserve/scale-to-zero.md"
+      ],
+      "keywords": ["kserve", "scale", "zero", "autoscaling"],
+      "category": "scaling"
+    },
+    {
+      "id": "kfp-cache",
+      "query": "Pipelines v2 disable cache",
+      "expected_doc_ids": [
+        "content/en/docs/pipelines/v2/caching.md"
+      ],
+      "keywords": ["cache", "disable", "v2"],
+      "category": "pipelines"
+    },
+    {
+      "id": "pipeline-secret",
+      "query": "KFP pipeline secret management",
+      "expected_doc_ids": [
+        "content/en/docs/pipelines/secrets.md"
+      ],
+      "keywords": ["secret", "pipeline", "kubernetes"],
+      "category": "security"
+    },
+    {
+      "id": "kserve-model-format",
+      "query": "KServe model format sklearn",
+      "expected_doc_ids": [
+        "content/en/docs/kserve/model-formats.md"
+      ],
+      "keywords": ["model", "format", "sklearn", "onnx"],
+      "category": "deployment"
+    },
+    {
+      "id": "katib-config",
+      "query": "Katib experiment configuration",
+      "expected_doc_ids": [
+        "content/en/docs/katib/config.md"
+      ],
+      "keywords": ["experiment", "yaml", "config"],
+      "category": "experimentation"
+    },
+    {
+      "id": "kfp-api",
+      "query": "Kubeflow Pipelines API reference",
+      "expected_doc_ids": [
+        "content/en/docs/pipelines/api.md"
+      ],
+      "keywords": ["api", "reference", "rest"],
+      "category": "api"
+    },
+    {
+      "id": "kfp-dockerfile",
+      "query": "KFP component container image Dockerfile",
+      "expected_doc_ids": [
+        "content/en/docs/pipelines/dockerfile.md"
+      ],
+      "keywords": ["dockerfile", "container", "image"],
+      "category": "pipelines"
+    },
+    {
+      "id": "istio-auth",
+      "query": "Istio AuthorizationPolicy error 403",
+      "expected_doc_ids": [
+        "content/en/docs/kserve/troubleshooting.md"
+      ],
+      "keywords": ["istio", "authorization", "403", "error"],
+      "category": "troubleshooting"
+    },
+    {
+      "id": "gpu-training",
+      "query": "Kubeflow GPU training best practices",
+      "expected_doc_ids": [
+        "content/en/docs/pipelines/gpu-training.md"
+      ],
+      "keywords": ["gpu", "training", "cuda"],
+      "category": "training"
+    },
+    {
+      "id": "kf-profiling",
+      "query": "Kubeflow performance profiling",
+      "expected_doc_ids": [
+        "content/en/docs/architecture/profiling.md"
+      ],
+      "keywords": ["profiling", "performance", "monitoring"],
+      "category": "architecture"
+    }
+  ]
+}
