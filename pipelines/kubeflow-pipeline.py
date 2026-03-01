@@ -4,7 +4,7 @@ from kfp.dsl import *
 from typing import *
 
 @dsl.component(
-    base_image="python:3.9",
+    base_image="python:3.13-slim",
     packages_to_install=["requests", "beautifulsoup4"]
 )
 def download_github_directory(
@@ -61,7 +61,7 @@ def download_github_directory(
 
 
 @dsl.component(
-    base_image="python:3.9",
+    base_image="python:3.13-slim",
     packages_to_install=["requests"]
 )
 def download_github_issues(
@@ -214,8 +214,8 @@ def download_github_issues(
 
 
 @dsl.component(
-    base_image="pytorch/pytorch:2.3.0-cuda12.1-cudnn8-runtime",
-    packages_to_install=["sentence-transformers", "langchain"]
+    base_image="python:3.13-slim",
+    packages_to_install=["sentence-transformers", "langchain-text-splitters"]
 )
 def chunk_and_embed(
     github_data: dsl.Input[dsl.Dataset],
@@ -228,13 +228,11 @@ def chunk_and_embed(
     import json
     import os
     import re
-    import torch
     from sentence_transformers import SentenceTransformer
-    from langchain.text_splitter import RecursiveCharacterTextSplitter
+    from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2', device=device)
-    print(f"Model loaded on {device}")
+    model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
+    print("Model loaded on CPU")
 
     records = []
 
@@ -301,13 +299,13 @@ def chunk_and_embed(
             for chunk_idx, chunk in enumerate(chunks):
                 embedding = model.encode(chunk).tolist()
                 records.append({
-                    'file_unique_id': file_unique_id,
+                    'file_unique_id': f"{file_unique_id}:{chunk_idx}",
                     'repo_name': repo_name,
                     'file_path': file_data['path'],
                     'file_name': file_data['file_name'],
-                    'citation_url': citation_url[:1024],
+                    'citation_url': citation_url,
                     'chunk_index': chunk_idx,
-                    'content_text': chunk[:2000],
+                    'content_text': chunk,
                     'embedding': embedding
                 })
 
@@ -319,54 +317,96 @@ def chunk_and_embed(
 
 
 @dsl.component(
-    base_image="python:3.9",
-    packages_to_install=["pymilvus", "numpy"]
+    base_image="python:3.13-slim",
+    packages_to_install=["feast[milvus]", "pandas", "marshmallow>=3.13.0"]
 )
-def store_milvus(
+def store_via_feast(
     embedded_data: dsl.Input[dsl.Dataset],
-    milvus_host: str,
-    milvus_port: str,
-    collection_name: str
+    feast_online_store_host: str,
+    feast_project: str,
 ):
-    from pymilvus import connections, utility, FieldSchema, CollectionSchema, DataType, Collection
     import json
-    from datetime import datetime
+    import os
+    import pandas as pd
+    import inspect
+    from datetime import datetime, timedelta
+    from feast import FeatureStore, Entity, FeatureView, Field, FileSource
+    from feast.types import String, Int64, Float32, Array, UnixTimestamp
 
-    connections.connect("default", host=milvus_host, port=milvus_port)
+    # Patch Feast VARCHAR limit (hardcoded 512 -> 4096) and reload module
+    import importlib
+    import feast.infra.online_stores.milvus_online_store.milvus as milvus_mod
+    src_file = inspect.getfile(milvus_mod)
+    with open(src_file, "r") as f:
+        content = f.read()
+    if "max_length=512" in content:
+        with open(src_file, "w") as f:
+            f.write(content.replace("max_length=512", "max_length=4096"))
+        print("Patched Feast VARCHAR limit to 4096")
+    importlib.reload(milvus_mod)
+    print("Reloaded Feast Milvus module")
 
-    # DROP existing collection to fix schema mismatch
+    # Drop existing collection so it gets recreated with the patched schema
+    from pymilvus import connections, utility
+    milvus_host = feast_online_store_host.replace("http://", "").replace("https://", "")
+    connections.connect("default", host=milvus_host, port="19530")
+    collection_name = f"{feast_project}_docs_rag"
     if utility.has_collection(collection_name):
         utility.drop_collection(collection_name)
         print(f"Dropped existing collection: {collection_name}")
+    connections.disconnect("default")
 
-    # Enhanced schema with 768 dimensions
-    fields = [
-        FieldSchema(name="id", dtype=DataType.INT64, is_primary=True, auto_id=True),
-        FieldSchema(name="file_unique_id", dtype=DataType.VARCHAR, max_length=512),
-        FieldSchema(name="repo_name", dtype=DataType.VARCHAR, max_length=256),
-        FieldSchema(name="file_path", dtype=DataType.VARCHAR, max_length=512),
-        FieldSchema(name="file_name", dtype=DataType.VARCHAR, max_length=256),
-        FieldSchema(name="citation_url", dtype=DataType.VARCHAR, max_length=1024),
-        FieldSchema(name="chunk_index", dtype=DataType.INT64),
-        FieldSchema(name="content_text", dtype=DataType.VARCHAR, max_length=2000),
-        FieldSchema(name="vector", dtype=DataType.FLOAT_VECTOR, dim=768),  # Updated for all-mpnet-base-v2
-        FieldSchema(name="last_updated", dtype=DataType.INT64)
-    ]
+    feast_dir = "/tmp/feast_repo"
+    os.makedirs(f"{feast_dir}/data", exist_ok=True)
 
-    # Create new collection with correct schema
-    schema = CollectionSchema(fields, "RAG collection for documentation")
-    collection = Collection(collection_name, schema)
-    print(f"Created new collection: {collection_name}")
+    with open(f"{feast_dir}/feature_store.yaml", "w") as f:
+        f.write(f"""project: {feast_project}
+provider: local
+registry: data/registry.db
+online_store:
+  type: milvus
+  host: {feast_online_store_host}
+  port: 19530
+  username: root
+  password: Milvus
+  vector_enabled: true
+  embedding_dim: 768
+  index_type: IVF_FLAT
+  metric_type: COSINE
+offline_store:
+  type: file
+entity_key_serialization_version: 3
+auth:
+  type: no_auth
+""")
 
-    # Rest of your existing code remains the same...
+    # Define Feast objects inline
+    doc_chunk = Entity(name="doc_chunk", join_keys=["file_unique_id"])
+    docs_source = FileSource(path="data/embedded_docs.parquet", timestamp_field="event_timestamp")
+    docs_rag = FeatureView(
+        name="docs_rag",
+        entities=[doc_chunk],
+        schema=[
+            Field(name="file_unique_id", dtype=String),
+            Field(name="repo_name", dtype=String),
+            Field(name="file_path", dtype=String),
+            Field(name="file_name", dtype=String),
+            Field(name="citation_url", dtype=String),
+            Field(name="chunk_index", dtype=Int64),
+            Field(name="content_text", dtype=String),
+            Field(name="vector", dtype=Array(Float32), vector_index=True, vector_search_metric="COSINE"),
+            Field(name="event_timestamp", dtype=UnixTimestamp),
+        ],
+        source=docs_source,
+        ttl=timedelta(days=30),
+    )
+
     records = []
-    timestamp = int(datetime.now().timestamp())
-
     with open(embedded_data.path, 'r', encoding='utf-8') as f:
         for line in f:
             record = json.loads(line)
             records.append({
-                "file_unique_id": record["file_unique_id"],
+                "file_unique_id": record['file_unique_id'],
                 "repo_name": record["repo_name"],
                 "file_path": record["file_path"],
                 "file_name": record["file_name"],
@@ -374,77 +414,59 @@ def store_milvus(
                 "chunk_index": record["chunk_index"],
                 "content_text": record["content_text"],
                 "vector": record["embedding"],
-                "last_updated": timestamp
+                "event_timestamp": datetime.now(),
             })
 
-    if records:
-        batch_size = 1000
-        for i in range(0, len(records), batch_size):
-            batch = records[i:i + batch_size]
-            collection.insert(batch)
+    df = pd.DataFrame(records)
 
-        collection.flush()
-
-        # Create index
-        index_params = {
-            "metric_type": "COSINE",
-            "index_type": "IVF_FLAT", 
-            "params": {"nlist": min(1024, len(records))}
-        }
-        collection.create_index("vector", index_params)
-        collection.load()
-        print(f"✅ Inserted {len(records)} records. Total: {collection.num_entities}")
+    store = FeatureStore(repo_path=feast_dir)
+    store.apply([doc_chunk, docs_source, docs_rag])
+    store.write_to_online_store(feature_view_name="docs_rag", df=df)
+    print(f"Wrote {len(records)} records to Feast online store")
 
 
 @dsl.pipeline(
-    name="github-rag",
-    description="RAG pipeline for processing GitHub documentation"
+    name="github-rag-feast",
+    description="RAG pipeline: GitHub docs -> chunk -> embed -> Feast"
 )
-def github_rag_pipeline(
+def github_rag_feast_pipeline(
     repo_owner: str = "kubeflow",
-    repo_name: str = "website", 
+    repo_name: str = "website",
     directory_path: str = "content/en",
     github_token: str = "",
-    base_url: str = "https://www.kubeflow.org/docs",
+    base_url: str = "https://<YOUR_DOCS_BASE_URL>",
     chunk_size: int = 1000,
     chunk_overlap: int = 100,
-    milvus_host: str = "milvus-standalone-final.docs-agent.svc.cluster.local",
-    milvus_port: str = "19530",
-    collection_name: str = "docs_rag"
+    feast_online_store_host: str = "http://milvus.<YOUR_NAMESPACE>.svc.cluster.local",
+    feast_project: str = "kubeflow_docs",
 ):
-    # Download GitHub directory
     download_task = download_github_directory(
         repo_owner=repo_owner,
         repo_name=repo_name,
         directory_path=directory_path,
-        github_token=github_token
+        github_token=github_token,
     )
-    
-    # Chunk and embed the content
+
     chunk_task = chunk_and_embed(
         github_data=download_task.outputs["github_data"],
         repo_name=repo_name,
         base_url=base_url,
         chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap
+        chunk_overlap=chunk_overlap,
     )
-    
-    # Store in Milvus
-    store_task = store_milvus(
+
+    store_via_feast(
         embedded_data=chunk_task.outputs["embedded_data"],
-        milvus_host=milvus_host,
-        milvus_port=milvus_port,
-        collection_name=collection_name
+        feast_online_store_host=feast_online_store_host,
+        feast_project=feast_project,
     )
+
 
 
 if __name__ == "__main__":
     import os
-    # Set environment variable to disable caching by default
     os.environ['KFP_DISABLE_EXECUTION_CACHING_BY_DEFAULT'] = 'true'
-    
-    # Compile the pipeline with caching disabled by default
     kfp.compiler.Compiler().compile(
-        pipeline_func=github_rag_pipeline,
-        package_path="github_rag_pipeline.yaml"
+        pipeline_func=github_rag_feast_pipeline,
+        package_path="github_rag_pipeline.yaml",
     )

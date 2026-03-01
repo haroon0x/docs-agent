@@ -7,3 +7,4 @@ torch
 feast[milvus]
 pandas
 numpy
+marshmallow>=3.13.0

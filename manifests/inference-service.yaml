@@ -3,8 +3,14 @@ kind: InferenceService
 metadata:
   name: llama
   namespace: docs-agent
+  annotations:
+    # Scale-to-Zero: scale down to 0 replicas when idle,
+    # scale up on demand to handle bursty workloads efficiently.
+    autoscaling.knative.dev/scaleToZeroPodRetentionPeriod: "10m"
 spec:
   predictor:
+    minReplicas: 0
+    maxReplicas: 1
     model:
       modelFormat:
         name: huggingface
@@ -36,3 +42,4 @@ spec:
           cpu: "6"
           memory: "24Gi"
           nvidia.com/gpu: "1"
+

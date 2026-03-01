@@ -1,0 +1,23 @@
+# ModelConfig for local KServe Llama 3.1-8B InferenceService
+# This replaces the external Groq API with a self-hosted LLM via KServe,
+# fulfilling the "dogfooding" requirement: using Kubeflow to serve
+# the AI that helps users learn Kubeflow.
+#
+# Prerequisites:
+#   - KServe InferenceService "llama" deployed (see manifests/inference-service.yaml)
+#   - ServingRuntime "llm-runtime" deployed (see manifests/serving-runtime.yaml)
+#
+# The KServe InferenceService exposes an OpenAI-compatible API at:
+#   http://llama.<namespace>.svc.cluster.local/openai/v1
+#
+# No API key Secret is needed because the LLM runs inside the cluster.
+apiVersion: kagent.dev/v1alpha2
+kind: ModelConfig
+metadata:
+  name: kserve-llama
+  namespace: <YOUR_NAMESPACE>
+spec:
+  model: llama3.1-8B
+  provider: OpenAI
+  openAI:
+    baseUrl: "http://llama.<YOUR_NAMESPACE>.svc.cluster.local/openai/v1"

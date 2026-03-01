@@ -2,12 +2,14 @@ from fastmcp import FastMCP
 from pymilvus import MilvusClient
 from sentence_transformers import SentenceTransformer
 
-MILVUS_URI = "http://milvus.<YOUR_NAMESPACE>.svc.cluster.local:19530"
-MILVUS_USER = "root"
-MILVUS_PASSWORD = "Milvus"
-COLLECTION_NAME = "kubeflow_docs_docs_rag"
-EMBEDDING_MODEL = "sentence-transformers/all-mpnet-base-v2"
-PORT = 8000
+import os
+
+MILVUS_URI = os.getenv("MILVUS_URI", "http://milvus.<YOUR_NAMESPACE>.svc.cluster.local:19530")
+MILVUS_USER = os.getenv("MILVUS_USER", "root")
+MILVUS_PASSWORD = os.getenv("MILVUS_PASSWORD", "Milvus")
+COLLECTION_NAME = os.getenv("COLLECTION_NAME", "kubeflow_docs_docs_rag")
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "sentence-transformers/all-mpnet-base-v2")
+PORT = int(os.getenv("PORT", 8000))
 
 mcp = FastMCP("Kubeflow Docs MCP Server")
 

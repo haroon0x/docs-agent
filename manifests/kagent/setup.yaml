@@ -1,30 +1,39 @@
-# 1. Groq API Key Secret
-apiVersion: v1
-kind: Secret
-metadata:
-  name: kagent-groq
-  namespace: <YOUR_NAMESPACE>
-type: Opaque
-stringData:
-  GROQ_API_KEY: "<YOUR_GROQ_API_KEY>"
+# ──────────────────────────────────────────────────────────────────────
+# LLM Provider Config
+# ──────────────────────────────────────────────────────────────────────
+# The primary ModelConfig uses KServe for local, self-hosted inference
+# (see kserve-model.yaml). This fulfills the "dogfooding" requirement.
+#
+# FALLBACK (for contributors without GPU access):
+# Uncomment the Groq Secret and ModelConfig below, and change
+# the Agent's modelConfig from "kserve-llama" to "groq-llama".
+#
+# ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: kagent-groq
+#   namespace: <YOUR_NAMESPACE>
+# type: Opaque
+# stringData:
+#   GROQ_API_KEY: "<YOUR_GROQ_API_KEY>"
+# ---
+# apiVersion: kagent.dev/v1alpha2
+# kind: ModelConfig
+# metadata:
+#   name: groq-llama
+#   namespace: <YOUR_NAMESPACE>
+# spec:
+#   apiKeySecret: kagent-groq
+#   apiKeySecretKey: GROQ_API_KEY
+#   model: llama-3.1-8b-instant
+#   provider: OpenAI
+#   openAI:
+#     baseUrl: "https://api.groq.com/openai/v1"
+# ──────────────────────────────────────────────────────────────────────
 
 ---
-# 2. LLM Provider Config (Groq is OpenAI-compatible)
-apiVersion: kagent.dev/v1alpha2
-kind: ModelConfig
-metadata:
-  name: groq-llama  
-  namespace: <YOUR_NAMESPACE>
-spec:
-  apiKeySecret: kagent-groq
-  apiKeySecretKey: GROQ_API_KEY
-  model: <model of your choice>
-  provider: OpenAI
-  openAI:
-    baseUrl: "https://api.groq.com/openai/v1"
-
----
-# 3. MCP Server Reference
+# 1. MCP Server Reference
 apiVersion: kagent.dev/v1alpha2
 kind: RemoteMCPServer
 metadata:
@@ -35,7 +44,7 @@ spec:
   url: http://mcp-kubeflow-docs.<YOUR_NAMESPACE>.svc.cluster.local:8000/mcp
 
 ---
-# 4. Agent with MCP tool
+# 2. Agent with MCP tool — uses local KServe by default
 apiVersion: kagent.dev/v1alpha2
 kind: Agent
 metadata:
@@ -45,7 +54,7 @@ spec:
   description: "Kubeflow documentation assistant"
   type: Declarative
   declarative:
-    modelConfig: groq-llama
+    modelConfig: kserve-llama
     tools:
       - type: McpServer
         mcpServer:

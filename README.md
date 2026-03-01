@@ -32,13 +32,14 @@ Kubeflow users often struggle to find relevant information across the extensive 
 
 ### Key Features
 
-- 🔍 **Intelligent Search**: Semantic search across Kubeflow documentation
-- 🤖 **AI-Powered Responses**: Contextual answers using Llama 3.1-8B model
-- ⚡ **Real-time Streaming**: WebSocket and HTTP streaming support
-- 🔧 **Tool Calling**: Automatic documentation lookup when needed
-- 📊 **Vector Database**: Milvus for efficient similarity search
+- 🤖 **Agentic RAG**: Kagent-powered agent that intelligently decides when to search documentation
+- 🔌 **Model Context Protocol (MCP)**: Documentation search exposed as a standard MCP tool
+- 🔍 **Semantic Search**: Milvus vector database with Feast feature store integration
+- 🧠 **Local LLM Serving**: Self-hosted Llama 3.1-8B via KServe with Scale-to-Zero
+- ⚡ **Real-time Streaming**: WebSocket and HTTP/SSE streaming support
+- 🔒 **Istio Security**: AuthorizationPolicies for agent-to-tool communication
 - 🚀 **Kubernetes Native**: Built for cloud-native environments
-- 🔄 **Automated ETL**: Kubeflow Pipelines for data processing
+- 🔄 **Automated ETL**: Kubeflow Pipelines for data ingestion via Feast
 
 ## Architecture
 
@@ -49,6 +50,41 @@ Kubeflow users often struggle to find relevant information across the extensive 
 ### Data Flow
 
 ![Data Flow](assets/querying.svg)
+
+### Kagent + MCP Architecture
+
+The agent is orchestrated using [Kagent](https://kagent.dev), a Kubernetes-native AI agent framework.
+Documentation search is exposed as a tool via the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/).
+
+```
+INGESTION (KFP Pipeline — periodic):
+  GitHub Repos → download → clean → chunk → embed → Feast → Milvus
+
+QUERY (real-time):
+  User Question → Kagent Agent → KServe LLM (decides to search?)
+                                       │
+                                  ┌─────┴─────┐
+                                  │ Yes        │ No
+                                  ▼            ▼
+                             MCP Server    Direct answer
+                             (Milvus)          │
+                                  │            │
+                                  ▼            │
+                             LLM + context ────┘
+                                  │
+                                  ▼
+                          Final answer with citations
+```
+
+**Components:**
+
+| Component      | Location                           | Purpose                               |
+| -------------- | ---------------------------------- | ------------------------------------- |
+| KFP Pipeline   | `pipelines/kubeflow-pipeline.py`   | Ingest docs via Feast into Milvus     |
+| MCP Server     | `mcp-server/server.py`             | Expose Milvus search as MCP tool      |
+| Kagent CRDs    | `manifests/kagent/`                | Agent, ModelConfig, RemoteMCPServer   |
+| KServe         | `manifests/inference-service.yaml` | Serve Llama 3.1-8B with Scale-to-Zero |
+| Istio Policies | `manifests/istio/`                 | Secure agent-to-tool communication    |
 
 ## Prerequisites
 
