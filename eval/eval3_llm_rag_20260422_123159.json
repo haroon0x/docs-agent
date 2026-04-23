@@ -1,0 +1,60 @@
+{
+  "eval_id": "eval3_llm_rag",
+  "timestamp": "20260422_123159",
+  "collection": "docs_rag",
+  "model": "sentence-transformers/all-mpnet-base-v2",
+  "ollama_model": "glm-5:cloud",
+  "entity_count": "unknown",
+  "queries": [
+    {
+      "query": "What is Katib and how do you configure it?",
+      "description": "katib config explained in docs",
+      "retrieved_chunks": "[1] docs/early-stopping.md dist=0.0164\n[2] docs/overview.md dist=0.0164\n[3] docs/metrics-collector.md dist=0.0161\n[4] docs/architecture.md dist=0.0161\n[5] docs/early-stopping.md dist=0.0159",
+      "rag_answer": "[ERROR: HTTP Error 403: Forbidden]",
+      "rag_latency_ms": 528.4,
+      "baseline_answer": "[ERROR: HTTP Error 403: Forbidden]",
+      "baseline_latency_ms": 373.6
+    },
+    {
+      "query": "How do you deploy a KFP pipeline component?",
+      "description": "KFP component definition",
+      "retrieved_chunks": "[1] docs/pipeline-root.md dist=0.0164\n[2] docs/component.md dist=0.0164\n[3] docs/dsl-recursion.md dist=0.0161\n[4] docs/component-development.md dist=0.0161\n[5] docs/component.md dist=0.0159",
+      "rag_answer": "[ERROR: HTTP Error 403: Forbidden]",
+      "rag_latency_ms": 548.8,
+      "baseline_answer": "[ERROR: HTTP Error 403: Forbidden]",
+      "baseline_latency_ms": 326.0
+    },
+    {
+      "query": "How does scaleToZeroGracePeriod work in InferenceService?",
+      "description": "KServe CRD setting",
+      "retrieved_chunks": "[1] docs/architecture.md dist=0.0164\n[2] docs/webapp.md dist=0.0164\n[3] code/kserve.yaml dist=0.0161\n[4] docs/static-type-checking.md dist=0.0161\n[5] docs/dsl-recursion.md dist=0.0159",
+      "rag_answer": "[ERROR: HTTP Error 403: Forbidden]",
+      "rag_latency_ms": 364.6,
+      "baseline_answer": "[ERROR: HTTP Error 403: Forbidden]",
+      "baseline_latency_ms": 409.5
+    },
+    {
+      "query": "What is the DSL syntax for defining Kubeflow pipelines?",
+      "description": "pipeline DSL code",
+      "retrieved_chunks": "[1] docs/sdk-overview.md dist=0.0305\n[2] docs/getting-started.md dist=0.0164\n[3] docs/artifacts.md dist=0.0164\n[4] docs/introduction.md dist=0.0161\n[5] docs/artifacts.md dist=0.0161",
+      "rag_answer": "[ERROR: HTTP Error 403: Forbidden]",
+      "rag_latency_ms": 488.0,
+      "baseline_answer": "[ERROR: HTTP Error 403: Forbidden]",
+      "baseline_latency_ms": 409.2
+    },
+    {
+      "query": "How do you configure PVC storage for volumes?",
+      "description": "storage config docs",
+      "retrieved_chunks": "[1] docs/manipulate-resources.md dist=0.0320\n[2] docs/writing-sparkapplication.md dist=0.0299\n[3] docs/platform-specific-features.md dist=0.0299\n[4] code/metrics-server_resource_table.py dist=0.0288\n[5] docs/runtime-patches.md dist=0.0288",
+      "rag_answer": "[ERROR: HTTP Error 403: Forbidden]",
+      "rag_latency_ms": 528.4,
+      "baseline_answer": "[ERROR: HTTP Error 403: Forbidden]",
+      "baseline_latency_ms": 410.0
+    }
+  ],
+  "summary": {
+    "total_queries": 5,
+    "avg_rag_latency_ms": 491.6,
+    "avg_baseline_latency_ms": 385.7
+  }
+}

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: docs-agent-env
+  namespace: docs-ag
+data:
+  MILVUS_HOST: "my-release-milvus.docs-ag.svc.cluster.local"
+  MILVUS_PORT: "19530"
+  MILVUS_USER: "root"
+  MILVUS_PASSWORD: "Milvus"

@@ -1,0 +1,1999 @@
+{
+  "timestamp": "20260422_124927",
+  "collection": "docs_rag",
+  "entity_count": "unknown",
+  "model": "sentence-transformers/all-mpnet-base-v2",
+  "queries": [
+    {
+      "query_id": 1,
+      "query": "katib controller deployment",
+      "description": "semantic/dense \u2014 find katib controller YAML configs",
+      "ground_truth_code": [
+        "controller.yaml",
+        "kustomization.yaml",
+        "rbac.yaml"
+      ],
+      "ground_truth_docs": [
+        "katib-config.md",
+        "architecture.md"
+      ],
+      "approaches": {
+        "A": {
+          "label": "unfiltered",
+          "filter": null,
+          "latencies_ms": {
+            "hybrid": 138.23324300028617,
+            "dense": 108.60701099954895,
+            "sparse": 8.731546000490198
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.4,
+              "recall@10": 0.8,
+              "ndcg@5": 0.7445,
+              "ndcg@10": 0.9287,
+              "top5_files": [
+                "katib-config.md",
+                "architecture.md",
+                "env-variables.md",
+                "installation-options.md",
+                "katib-config.md"
+              ],
+              "top10_files": [
+                "katib-config.md",
+                "architecture.md",
+                "env-variables.md",
+                "installation-options.md",
+                "katib-config.md",
+                "controller.yaml",
+                "kustomization.yaml",
+                "installation.md",
+                "kustomization.yaml",
+                "installation-options.md"
+              ]
+            },
+            "dense": {
+              "mrr@5": 0.5,
+              "mrr@10": 0.5,
+              "recall@5": 0.2,
+              "recall@10": 0.4,
+              "ndcg@5": 0.3066,
+              "ndcg@10": 0.3613,
+              "top5_files": [
+                "installation-options.md",
+                "katib-config.md",
+                "installation.md",
+                "installation-options.md",
+                "katib-config.md"
+              ],
+              "top10_files": [
+                "installation-options.md",
+                "katib-config.md",
+                "installation.md",
+                "installation-options.md",
+                "katib-config.md",
+                "env-variables.md",
+                "overview.md",
+                "architecture.md",
+                "installation.md",
+                "installation-options.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.6,
+              "recall@10": 1.0,
+              "ndcg@5": 0.9124,
+              "ndcg@10": 1.0297,
+              "top5_files": [
+                "controller.yaml",
+                "architecture.md",
+                "kustomization.yaml",
+                "kustomization.yaml",
+                "env-variables.md"
+              ],
+              "top10_files": [
+                "controller.yaml",
+                "architecture.md",
+                "kustomization.yaml",
+                "kustomization.yaml",
+                "env-variables.md",
+                "experiment-cr.md",
+                "rbac.yaml",
+                "katib-config.md",
+                "webhooks.yaml",
+                "resume-experiment.md"
+              ]
+            }
+          }
+        },
+        "B": {
+          "label": "code_partition",
+          "filter": "source_type == \"code\"",
+          "latencies_ms": {
+            "hybrid": 159.89946400077315,
+            "dense": 95.2360459996271,
+            "sparse": 4.6120300012262305
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 0.0,
+              "mrr@10": 0.1667,
+              "recall@5": 0.0,
+              "recall@10": 0.6667,
+              "ndcg@5": 0.0,
+              "ndcg@10": 0.2294,
+              "top5_files": [
+                "katib-config.md",
+                "architecture.md",
+                "env-variables.md",
+                "installation-options.md",
+                "katib-config.md"
+              ],
+              "top10_files": [
+                "katib-config.md",
+                "architecture.md",
+                "env-variables.md",
+                "installation-options.md",
+                "katib-config.md",
+                "controller.yaml",
+                "kustomization.yaml",
+                "installation.md",
+                "kustomization.yaml",
+                "installation-options.md"
+              ]
+            },
+            "dense": {
+              "mrr@5": 0.0,
+              "mrr@10": 0.0,
+              "recall@5": 0.0,
+              "recall@10": 0.0,
+              "ndcg@5": 0.0,
+              "ndcg@10": 0.0,
+              "top5_files": [
+                "installation-options.md",
+                "katib-config.md",
+                "installation.md",
+                "installation-options.md",
+                "katib-config.md"
+              ],
+              "top10_files": [
+                "installation-options.md",
+                "katib-config.md",
+                "installation.md",
+                "installation-options.md",
+                "katib-config.md",
+                "env-variables.md",
+                "overview.md",
+                "architecture.md",
+                "installation.md",
+                "installation-options.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.6667,
+              "recall@10": 1.0,
+              "ndcg@5": 0.8636,
+              "ndcg@10": 0.9416,
+              "top5_files": [
+                "controller.yaml",
+                "architecture.md",
+                "kustomization.yaml",
+                "kustomization.yaml",
+                "env-variables.md"
+              ],
+              "top10_files": [
+                "controller.yaml",
+                "architecture.md",
+                "kustomization.yaml",
+                "kustomization.yaml",
+                "env-variables.md",
+                "experiment-cr.md",
+                "rbac.yaml",
+                "katib-config.md",
+                "webhooks.yaml",
+                "resume-experiment.md"
+              ]
+            }
+          }
+        },
+        "C": {
+          "label": "docs_partition",
+          "filter": "source_type == \"docs\"",
+          "latencies_ms": {
+            "hybrid": 89.39866699984123,
+            "dense": 114.73528100032127,
+            "sparse": 14.181737999024335
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 1.1333,
+              "ndcg@10": 1.1333,
+              "top5_files": [
+                "katib-config.md",
+                "architecture.md",
+                "env-variables.md",
+                "installation-options.md",
+                "katib-config.md"
+              ],
+              "top10_files": [
+                "katib-config.md",
+                "architecture.md",
+                "env-variables.md",
+                "installation-options.md",
+                "katib-config.md",
+                "controller.yaml",
+                "kustomization.yaml",
+                "installation.md",
+                "kustomization.yaml",
+                "installation-options.md"
+              ]
+            },
+            "dense": {
+              "mrr@5": 0.5,
+              "mrr@10": 0.5,
+              "recall@5": 0.5,
+              "recall@10": 1.0,
+              "ndcg@5": 0.4667,
+              "ndcg@10": 0.55,
+              "top5_files": [
+                "installation-options.md",
+                "katib-config.md",
+                "installation.md",
+                "installation-options.md",
+                "katib-config.md"
+              ],
+              "top10_files": [
+                "installation-options.md",
+                "katib-config.md",
+                "installation.md",
+                "installation-options.md",
+                "katib-config.md",
+                "env-variables.md",
+                "overview.md",
+                "architecture.md",
+                "installation.md",
+                "installation-options.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 0.5,
+              "mrr@10": 0.5,
+              "recall@5": 0.5,
+              "recall@10": 1.0,
+              "ndcg@5": 0.3333,
+              "ndcg@10": 0.4167,
+              "top5_files": [
+                "controller.yaml",
+                "architecture.md",
+                "kustomization.yaml",
+                "kustomization.yaml",
+                "env-variables.md"
+              ],
+              "top10_files": [
+                "controller.yaml",
+                "architecture.md",
+                "kustomization.yaml",
+                "kustomization.yaml",
+                "env-variables.md",
+                "experiment-cr.md",
+                "rbac.yaml",
+                "katib-config.md",
+                "webhooks.yaml",
+                "resume-experiment.md"
+              ]
+            }
+          }
+        }
+      },
+      "rank_shifts": {
+        "A_vs_B": {
+          "top5_overlap": 7,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "katib-config.md",
+            "architecture.md",
+            "env-variables.md",
+            "installation-options.md",
+            "katib-config.md",
+            "controller.yaml",
+            "kustomization.yaml",
+            "installation.md",
+            "kustomization.yaml",
+            "installation-options.md"
+          ],
+          "b_files": [
+            "katib-config.md",
+            "architecture.md",
+            "env-variables.md",
+            "installation-options.md",
+            "katib-config.md",
+            "controller.yaml",
+            "kustomization.yaml",
+            "installation.md",
+            "kustomization.yaml",
+            "installation-options.md"
+          ]
+        },
+        "A_vs_C": {
+          "top5_overlap": 7,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "katib-config.md",
+            "architecture.md",
+            "env-variables.md",
+            "installation-options.md",
+            "katib-config.md",
+            "controller.yaml",
+            "kustomization.yaml",
+            "installation.md",
+            "kustomization.yaml",
+            "installation-options.md"
+          ],
+          "b_files": [
+            "katib-config.md",
+            "architecture.md",
+            "env-variables.md",
+            "installation-options.md",
+            "katib-config.md",
+            "controller.yaml",
+            "kustomization.yaml",
+            "installation.md",
+            "kustomization.yaml",
+            "installation-options.md"
+          ]
+        },
+        "B_vs_C": {
+          "top5_overlap": 7,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "katib-config.md",
+            "architecture.md",
+            "env-variables.md",
+            "installation-options.md",
+            "katib-config.md",
+            "controller.yaml",
+            "kustomization.yaml",
+            "installation.md",
+            "kustomization.yaml",
+            "installation-options.md"
+          ],
+          "b_files": [
+            "katib-config.md",
+            "architecture.md",
+            "env-variables.md",
+            "installation-options.md",
+            "katib-config.md",
+            "controller.yaml",
+            "kustomization.yaml",
+            "installation.md",
+            "kustomization.yaml",
+            "installation-options.md"
+          ]
+        }
+      }
+    },
+    {
+      "query_id": 2,
+      "query": "InferenceService scaleToZeroGracePeriod",
+      "description": "keyword/BM25 \u2014 KServe CRD identifiers",
+      "ground_truth_code": [
+        "kserve.yaml",
+        "kserve_kubeflow.yaml"
+      ],
+      "ground_truth_docs": [
+        "webapp.md"
+      ],
+      "approaches": {
+        "A": {
+          "label": "unfiltered",
+          "filter": null,
+          "latencies_ms": {
+            "hybrid": 147.75266600008763,
+            "dense": 130.94450300013705,
+            "sparse": 8.102383000732516
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 1.2455,
+              "ndcg@10": 1.537,
+              "top5_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve.yaml",
+                "kserve.yaml"
+              ],
+              "top10_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve_kubeflow.yaml",
+                "mt-channel-broker.yaml",
+                "kserve_kubeflow.yaml"
+              ]
+            },
+            "dense": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 1.1091,
+              "ndcg@10": 1.2379,
+              "top5_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "mt-channel-broker.yaml",
+                "kserve.yaml"
+              ],
+              "top10_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "mt-channel-broker.yaml",
+                "kserve.yaml",
+                "eventing-core.yaml",
+                "mt-channel-broker.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "install.yaml"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 1.2455,
+              "ndcg@10": 1.5197,
+              "top5_files": [
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve_kubeflow.yaml",
+                "webapp.md"
+              ],
+              "top10_files": [
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve_kubeflow.yaml",
+                "webapp.md",
+                "webapp.md",
+                "getting-started.md",
+                "webapp.md",
+                "webapp.md",
+                "kserve.yaml"
+              ]
+            }
+          }
+        },
+        "B": {
+          "label": "code_partition",
+          "filter": "source_type == \"code\"",
+          "latencies_ms": {
+            "hybrid": 152.24910700089822,
+            "dense": 119.71597499905329,
+            "sparse": 8.401271999900928
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 0.5,
+              "mrr@10": 0.5,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 0.8556,
+              "ndcg@10": 1.2119,
+              "top5_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve.yaml",
+                "kserve.yaml"
+              ],
+              "top10_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve_kubeflow.yaml",
+                "mt-channel-broker.yaml",
+                "kserve_kubeflow.yaml"
+              ]
+            },
+            "dense": {
+              "mrr@5": 0.5,
+              "mrr@10": 0.5,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 0.6889,
+              "ndcg@10": 0.8463,
+              "top5_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "mt-channel-broker.yaml",
+                "kserve.yaml"
+              ],
+              "top10_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "mt-channel-broker.yaml",
+                "kserve.yaml",
+                "eventing-core.yaml",
+                "mt-channel-broker.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "install.yaml"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 1.3889,
+              "ndcg@10": 1.4556,
+              "top5_files": [
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve_kubeflow.yaml",
+                "webapp.md"
+              ],
+              "top10_files": [
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve_kubeflow.yaml",
+                "webapp.md",
+                "webapp.md",
+                "getting-started.md",
+                "webapp.md",
+                "webapp.md",
+                "kserve.yaml"
+              ]
+            }
+          }
+        },
+        "C": {
+          "label": "docs_partition",
+          "filter": "source_type == \"docs\"",
+          "latencies_ms": {
+            "hybrid": 134.05652400069812,
+            "dense": 133.1713799991121,
+            "sparse": 8.420558000580058
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 1.0,
+              "ndcg@10": 1.0,
+              "top5_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve.yaml",
+                "kserve.yaml"
+              ],
+              "top10_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve_kubeflow.yaml",
+                "mt-channel-broker.yaml",
+                "kserve_kubeflow.yaml"
+              ]
+            },
+            "dense": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 1.0,
+              "ndcg@10": 1.0,
+              "top5_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "mt-channel-broker.yaml",
+                "kserve.yaml"
+              ],
+              "top10_files": [
+                "webapp.md",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "mt-channel-broker.yaml",
+                "kserve.yaml",
+                "eventing-core.yaml",
+                "mt-channel-broker.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "install.yaml"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 0.2,
+              "mrr@10": 0.2,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 0.2,
+              "ndcg@10": 0.6028,
+              "top5_files": [
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve_kubeflow.yaml",
+                "webapp.md"
+              ],
+              "top10_files": [
+                "kserve.yaml",
+                "kserve.yaml",
+                "kserve_kubeflow.yaml",
+                "kserve_kubeflow.yaml",
+                "webapp.md",
+                "webapp.md",
+                "getting-started.md",
+                "webapp.md",
+                "webapp.md",
+                "kserve.yaml"
+              ]
+            }
+          }
+        }
+      },
+      "rank_shifts": {
+        "A_vs_B": {
+          "top5_overlap": 4,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "webapp.md",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve_kubeflow.yaml",
+            "mt-channel-broker.yaml",
+            "kserve_kubeflow.yaml"
+          ],
+          "b_files": [
+            "webapp.md",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve_kubeflow.yaml",
+            "mt-channel-broker.yaml",
+            "kserve_kubeflow.yaml"
+          ]
+        },
+        "A_vs_C": {
+          "top5_overlap": 4,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "webapp.md",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve_kubeflow.yaml",
+            "mt-channel-broker.yaml",
+            "kserve_kubeflow.yaml"
+          ],
+          "b_files": [
+            "webapp.md",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve_kubeflow.yaml",
+            "mt-channel-broker.yaml",
+            "kserve_kubeflow.yaml"
+          ]
+        },
+        "B_vs_C": {
+          "top5_overlap": 4,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "webapp.md",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve_kubeflow.yaml",
+            "mt-channel-broker.yaml",
+            "kserve_kubeflow.yaml"
+          ],
+          "b_files": [
+            "webapp.md",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve.yaml",
+            "kserve_kubeflow.yaml",
+            "kserve_kubeflow.yaml",
+            "mt-channel-broker.yaml",
+            "kserve_kubeflow.yaml"
+          ]
+        }
+      }
+    },
+    {
+      "query_id": 3,
+      "query": "KFP pipeline component definition",
+      "description": "hybrid RRF \u2014 Kubeflow Pipelines DSL",
+      "ground_truth_code": [
+        "kustomization.yaml",
+        "_index.md"
+      ],
+      "ground_truth_docs": [
+        "component-development.md",
+        "pipeline.md",
+        "_index.md"
+      ],
+      "approaches": {
+        "A": {
+          "label": "unfiltered",
+          "filter": null,
+          "latencies_ms": {
+            "hybrid": 167.86715999842272,
+            "dense": 84.0203140014637,
+            "sparse": 3.9902119988255436
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.75,
+              "recall@10": 0.75,
+              "ndcg@5": 0.9124,
+              "ndcg@10": 0.9124,
+              "top5_files": [
+                "_index.md",
+                "component-development.md",
+                "component-development.md",
+                "pipeline.md",
+                "cli.md"
+              ],
+              "top10_files": [
+                "_index.md",
+                "component-development.md",
+                "component-development.md",
+                "pipeline.md",
+                "cli.md",
+                "component-spec.md",
+                "ir-yaml.md",
+                "component.md",
+                "component.md",
+                "pipeline-root.md"
+              ]
+            },
+            "dense": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.75,
+              "recall@10": 0.75,
+              "ndcg@5": 0.7664,
+              "ndcg@10": 0.8102,
+              "top5_files": [
+                "component-development.md",
+                "pipeline.md",
+                "component-spec.md",
+                "_index.md",
+                "pipeline-root.md"
+              ],
+              "top10_files": [
+                "component-development.md",
+                "pipeline.md",
+                "component-spec.md",
+                "_index.md",
+                "pipeline-root.md",
+                "best-practices.md",
+                "pipeline-root.md",
+                "build-pipeline.md",
+                "pipeline-root.md",
+                "component-development.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.25,
+              "recall@10": 0.25,
+              "ndcg@5": 0.438,
+              "ndcg@10": 0.438,
+              "top5_files": [
+                "_index.md",
+                "cli.md",
+                "ir-yaml.md",
+                "component.md",
+                "component.md"
+              ],
+              "top10_files": [
+                "_index.md",
+                "cli.md",
+                "ir-yaml.md",
+                "component.md",
+                "component.md",
+                "migration.md",
+                "migration.md",
+                "compose-components-into-pipelines.md",
+                "python-function-components.md",
+                "container-components.md"
+              ]
+            }
+          }
+        },
+        "B": {
+          "label": "code_partition",
+          "filter": "source_type == \"code\"",
+          "latencies_ms": {
+            "hybrid": 72.58696799908648,
+            "dense": 87.90412400048808,
+            "sparse": 3.6443410008359933
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.5,
+              "recall@10": 0.5,
+              "ndcg@5": 0.6667,
+              "ndcg@10": 0.6667,
+              "top5_files": [
+                "_index.md",
+                "component-development.md",
+                "component-development.md",
+                "pipeline.md",
+                "cli.md"
+              ],
+              "top10_files": [
+                "_index.md",
+                "component-development.md",
+                "component-development.md",
+                "pipeline.md",
+                "cli.md",
+                "component-spec.md",
+                "ir-yaml.md",
+                "component.md",
+                "component.md",
+                "pipeline-root.md"
+              ]
+            },
+            "dense": {
+              "mrr@5": 0.25,
+              "mrr@10": 0.25,
+              "recall@5": 0.5,
+              "recall@10": 0.5,
+              "ndcg@5": 0.1667,
+              "ndcg@10": 0.1667,
+              "top5_files": [
+                "component-development.md",
+                "pipeline.md",
+                "component-spec.md",
+                "_index.md",
+                "pipeline-root.md"
+              ],
+              "top10_files": [
+                "component-development.md",
+                "pipeline.md",
+                "component-spec.md",
+                "_index.md",
+                "pipeline-root.md",
+                "best-practices.md",
+                "pipeline-root.md",
+                "build-pipeline.md",
+                "pipeline-root.md",
+                "component-development.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.5,
+              "recall@10": 0.5,
+              "ndcg@5": 0.6667,
+              "ndcg@10": 0.6667,
+              "top5_files": [
+                "_index.md",
+                "cli.md",
+                "ir-yaml.md",
+                "component.md",
+                "component.md"
+              ],
+              "top10_files": [
+                "_index.md",
+                "cli.md",
+                "ir-yaml.md",
+                "component.md",
+                "component.md",
+                "migration.md",
+                "migration.md",
+                "compose-components-into-pipelines.md",
+                "python-function-components.md",
+                "container-components.md"
+              ]
+            }
+          }
+        },
+        "C": {
+          "label": "docs_partition",
+          "filter": "source_type == \"docs\"",
+          "latencies_ms": {
+            "hybrid": 80.22045299912861,
+            "dense": 81.94300499962992,
+            "sparse": 4.156778000833583
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 1.1364,
+              "ndcg@10": 1.1364,
+              "top5_files": [
+                "_index.md",
+                "component-development.md",
+                "component-development.md",
+                "pipeline.md",
+                "cli.md"
+              ],
+              "top10_files": [
+                "_index.md",
+                "component-development.md",
+                "component-development.md",
+                "pipeline.md",
+                "cli.md",
+                "component-spec.md",
+                "ir-yaml.md",
+                "component.md",
+                "component.md",
+                "pipeline-root.md"
+              ]
+            },
+            "dense": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 0.9545,
+              "ndcg@10": 1.0091,
+              "top5_files": [
+                "component-development.md",
+                "pipeline.md",
+                "component-spec.md",
+                "_index.md",
+                "pipeline-root.md"
+              ],
+              "top10_files": [
+                "component-development.md",
+                "pipeline.md",
+                "component-spec.md",
+                "_index.md",
+                "pipeline-root.md",
+                "best-practices.md",
+                "pipeline-root.md",
+                "build-pipeline.md",
+                "pipeline-root.md",
+                "component-development.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.3333,
+              "recall@10": 0.3333,
+              "ndcg@5": 0.5455,
+              "ndcg@10": 0.5455,
+              "top5_files": [
+                "_index.md",
+                "cli.md",
+                "ir-yaml.md",
+                "component.md",
+                "component.md"
+              ],
+              "top10_files": [
+                "_index.md",
+                "cli.md",
+                "ir-yaml.md",
+                "component.md",
+                "component.md",
+                "migration.md",
+                "migration.md",
+                "compose-components-into-pipelines.md",
+                "python-function-components.md",
+                "container-components.md"
+              ]
+            }
+          }
+        }
+      },
+      "rank_shifts": {
+        "A_vs_B": {
+          "top5_overlap": 8,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "_index.md",
+            "component-development.md",
+            "component-development.md",
+            "pipeline.md",
+            "cli.md",
+            "component-spec.md",
+            "ir-yaml.md",
+            "component.md",
+            "component.md",
+            "pipeline-root.md"
+          ],
+          "b_files": [
+            "_index.md",
+            "component-development.md",
+            "component-development.md",
+            "pipeline.md",
+            "cli.md",
+            "component-spec.md",
+            "ir-yaml.md",
+            "component.md",
+            "component.md",
+            "pipeline-root.md"
+          ]
+        },
+        "A_vs_C": {
+          "top5_overlap": 8,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "_index.md",
+            "component-development.md",
+            "component-development.md",
+            "pipeline.md",
+            "cli.md",
+            "component-spec.md",
+            "ir-yaml.md",
+            "component.md",
+            "component.md",
+            "pipeline-root.md"
+          ],
+          "b_files": [
+            "_index.md",
+            "component-development.md",
+            "component-development.md",
+            "pipeline.md",
+            "cli.md",
+            "component-spec.md",
+            "ir-yaml.md",
+            "component.md",
+            "component.md",
+            "pipeline-root.md"
+          ]
+        },
+        "B_vs_C": {
+          "top5_overlap": 8,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "_index.md",
+            "component-development.md",
+            "component-development.md",
+            "pipeline.md",
+            "cli.md",
+            "component-spec.md",
+            "ir-yaml.md",
+            "component.md",
+            "component.md",
+            "pipeline-root.md"
+          ],
+          "b_files": [
+            "_index.md",
+            "component-development.md",
+            "component-development.md",
+            "pipeline.md",
+            "cli.md",
+            "component-spec.md",
+            "ir-yaml.md",
+            "component.md",
+            "component.md",
+            "pipeline-root.md"
+          ]
+        }
+      }
+    },
+    {
+      "query_id": 4,
+      "query": "PVC volume mount storage config",
+      "description": "partition filter \u2014 storage configs",
+      "ground_truth_code": [
+        "seaweedfs-pvc.yaml",
+        "metrics-server_resource_table.py"
+      ],
+      "ground_truth_docs": [
+        "manipulate-resources.md",
+        "platform-specific-features.md"
+      ],
+      "approaches": {
+        "A": {
+          "label": "unfiltered",
+          "filter": null,
+          "latencies_ms": {
+            "hybrid": 93.0055730004824,
+            "dense": 91.32935600064229,
+            "sparse": 5.221040999458637
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.5,
+              "recall@10": 1.0,
+              "ndcg@5": 0.976,
+              "ndcg@10": 1.1526,
+              "top5_files": [
+                "manipulate-resources.md",
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "runtime-patches.md",
+                "manipulate-resources.md"
+              ],
+              "top10_files": [
+                "manipulate-resources.md",
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "runtime-patches.md",
+                "manipulate-resources.md",
+                "writing-sparkapplication.md",
+                "manipulate-resources.md",
+                "seaweedfs-pvc.yaml",
+                "pg-pvc.yaml",
+                "metrics-server_resource_table.py"
+              ]
+            },
+            "dense": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.5,
+              "recall@10": 0.75,
+              "ndcg@5": 0.84,
+              "ndcg@10": 0.9566,
+              "top5_files": [
+                "manipulate-resources.md",
+                "manipulate-resources.md",
+                "_v1alpha1_pvcviewer.yaml",
+                "seaweedfs-pvc.yaml",
+                "pg-pvc.yaml"
+              ],
+              "top10_files": [
+                "manipulate-resources.md",
+                "manipulate-resources.md",
+                "_v1alpha1_pvcviewer.yaml",
+                "seaweedfs-pvc.yaml",
+                "pg-pvc.yaml",
+                "writing-sparkapplication.md",
+                "platform-specific-features.md",
+                "mysql-pv-claim.yaml",
+                "runtime-patches.md",
+                "manipulate-resources.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.5,
+              "recall@10": 0.5,
+              "ndcg@5": 0.816,
+              "ndcg@10": 0.8846,
+              "top5_files": [
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "artifacts.md",
+                "resume-experiment.md",
+                "manipulate-resources.md"
+              ],
+              "top10_files": [
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "artifacts.md",
+                "resume-experiment.md",
+                "manipulate-resources.md",
+                "runtime-patches.md",
+                "manipulate-resources.md",
+                "prometheus-deployment.yaml",
+                "notebooks-spark-operator.md",
+                "writing-sparkapplication.md"
+              ]
+            }
+          }
+        },
+        "B": {
+          "label": "code_partition",
+          "filter": "source_type == \"code\"",
+          "latencies_ms": {
+            "hybrid": 84.02208299958147,
+            "dense": 138.842119000401,
+            "sparse": 8.041645000048447
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 0.0,
+              "mrr@10": 0.125,
+              "recall@5": 0.0,
+              "recall@10": 1.0,
+              "ndcg@5": 0.0,
+              "ndcg@10": 0.15,
+              "top5_files": [
+                "manipulate-resources.md",
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "runtime-patches.md",
+                "manipulate-resources.md"
+              ],
+              "top10_files": [
+                "manipulate-resources.md",
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "runtime-patches.md",
+                "manipulate-resources.md",
+                "writing-sparkapplication.md",
+                "manipulate-resources.md",
+                "seaweedfs-pvc.yaml",
+                "pg-pvc.yaml",
+                "metrics-server_resource_table.py"
+              ]
+            },
+            "dense": {
+              "mrr@5": 0.25,
+              "mrr@10": 0.25,
+              "recall@5": 0.5,
+              "recall@10": 0.5,
+              "ndcg@5": 0.1667,
+              "ndcg@10": 0.1667,
+              "top5_files": [
+                "manipulate-resources.md",
+                "manipulate-resources.md",
+                "_v1alpha1_pvcviewer.yaml",
+                "seaweedfs-pvc.yaml",
+                "pg-pvc.yaml"
+              ],
+              "top10_files": [
+                "manipulate-resources.md",
+                "manipulate-resources.md",
+                "_v1alpha1_pvcviewer.yaml",
+                "seaweedfs-pvc.yaml",
+                "pg-pvc.yaml",
+                "writing-sparkapplication.md",
+                "platform-specific-features.md",
+                "mysql-pv-claim.yaml",
+                "runtime-patches.md",
+                "manipulate-resources.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 0.0,
+              "mrr@10": 0.0,
+              "recall@5": 0.0,
+              "recall@10": 0.0,
+              "ndcg@5": 0.0,
+              "ndcg@10": 0.0,
+              "top5_files": [
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "artifacts.md",
+                "resume-experiment.md",
+                "manipulate-resources.md"
+              ],
+              "top10_files": [
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "artifacts.md",
+                "resume-experiment.md",
+                "manipulate-resources.md",
+                "runtime-patches.md",
+                "manipulate-resources.md",
+                "prometheus-deployment.yaml",
+                "notebooks-spark-operator.md",
+                "writing-sparkapplication.md"
+              ]
+            }
+          }
+        },
+        "C": {
+          "label": "docs_partition",
+          "filter": "source_type == \"docs\"",
+          "latencies_ms": {
+            "hybrid": 170.11107400139736,
+            "dense": 151.80606099966099,
+            "sparse": 7.012710999333649
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 1.3556,
+              "ndcg@10": 1.4508,
+              "top5_files": [
+                "manipulate-resources.md",
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "runtime-patches.md",
+                "manipulate-resources.md"
+              ],
+              "top10_files": [
+                "manipulate-resources.md",
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "runtime-patches.md",
+                "manipulate-resources.md",
+                "writing-sparkapplication.md",
+                "manipulate-resources.md",
+                "seaweedfs-pvc.yaml",
+                "pg-pvc.yaml",
+                "metrics-server_resource_table.py"
+              ]
+            },
+            "dense": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.5,
+              "recall@10": 1.0,
+              "ndcg@5": 1.0,
+              "ndcg@10": 1.1619,
+              "top5_files": [
+                "manipulate-resources.md",
+                "manipulate-resources.md",
+                "_v1alpha1_pvcviewer.yaml",
+                "seaweedfs-pvc.yaml",
+                "pg-pvc.yaml"
+              ],
+              "top10_files": [
+                "manipulate-resources.md",
+                "manipulate-resources.md",
+                "_v1alpha1_pvcviewer.yaml",
+                "seaweedfs-pvc.yaml",
+                "pg-pvc.yaml",
+                "writing-sparkapplication.md",
+                "platform-specific-features.md",
+                "mysql-pv-claim.yaml",
+                "runtime-patches.md",
+                "manipulate-resources.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 1.1333,
+              "ndcg@10": 1.2286,
+              "top5_files": [
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "artifacts.md",
+                "resume-experiment.md",
+                "manipulate-resources.md"
+              ],
+              "top10_files": [
+                "platform-specific-features.md",
+                "manipulate-resources.md",
+                "artifacts.md",
+                "resume-experiment.md",
+                "manipulate-resources.md",
+                "runtime-patches.md",
+                "manipulate-resources.md",
+                "prometheus-deployment.yaml",
+                "notebooks-spark-operator.md",
+                "writing-sparkapplication.md"
+              ]
+            }
+          }
+        }
+      },
+      "rank_shifts": {
+        "A_vs_B": {
+          "top5_overlap": 7,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "manipulate-resources.md",
+            "platform-specific-features.md",
+            "manipulate-resources.md",
+            "runtime-patches.md",
+            "manipulate-resources.md",
+            "writing-sparkapplication.md",
+            "manipulate-resources.md",
+            "seaweedfs-pvc.yaml",
+            "pg-pvc.yaml",
+            "metrics-server_resource_table.py"
+          ],
+          "b_files": [
+            "manipulate-resources.md",
+            "platform-specific-features.md",
+            "manipulate-resources.md",
+            "runtime-patches.md",
+            "manipulate-resources.md",
+            "writing-sparkapplication.md",
+            "manipulate-resources.md",
+            "seaweedfs-pvc.yaml",
+            "pg-pvc.yaml",
+            "metrics-server_resource_table.py"
+          ]
+        },
+        "A_vs_C": {
+          "top5_overlap": 7,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "manipulate-resources.md",
+            "platform-specific-features.md",
+            "manipulate-resources.md",
+            "runtime-patches.md",
+            "manipulate-resources.md",
+            "writing-sparkapplication.md",
+            "manipulate-resources.md",
+            "seaweedfs-pvc.yaml",
+            "pg-pvc.yaml",
+            "metrics-server_resource_table.py"
+          ],
+          "b_files": [
+            "manipulate-resources.md",
+            "platform-specific-features.md",
+            "manipulate-resources.md",
+            "runtime-patches.md",
+            "manipulate-resources.md",
+            "writing-sparkapplication.md",
+            "manipulate-resources.md",
+            "seaweedfs-pvc.yaml",
+            "pg-pvc.yaml",
+            "metrics-server_resource_table.py"
+          ]
+        },
+        "B_vs_C": {
+          "top5_overlap": 7,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "manipulate-resources.md",
+            "platform-specific-features.md",
+            "manipulate-resources.md",
+            "runtime-patches.md",
+            "manipulate-resources.md",
+            "writing-sparkapplication.md",
+            "manipulate-resources.md",
+            "seaweedfs-pvc.yaml",
+            "pg-pvc.yaml",
+            "metrics-server_resource_table.py"
+          ],
+          "b_files": [
+            "manipulate-resources.md",
+            "platform-specific-features.md",
+            "manipulate-resources.md",
+            "runtime-patches.md",
+            "manipulate-resources.md",
+            "writing-sparkapplication.md",
+            "manipulate-resources.md",
+            "seaweedfs-pvc.yaml",
+            "pg-pvc.yaml",
+            "metrics-server_resource_table.py"
+          ]
+        }
+      }
+    },
+    {
+      "query_id": 5,
+      "query": "kubeflow pipeline DSL syntax",
+      "description": "cross-type \u2014 YAML manifests + Python code",
+      "ground_truth_code": [
+        "pipeline_run_and_wait_kubeflow.py",
+        "kustomization.yaml"
+      ],
+      "ground_truth_docs": [
+        "getting-started.md",
+        "pipeline.md",
+        "artifacts.md"
+      ],
+      "approaches": {
+        "A": {
+          "label": "unfiltered",
+          "filter": null,
+          "latencies_ms": {
+            "hybrid": 129.05435699940426,
+            "dense": 324.3592050002917,
+            "sparse": 10.500369000510545
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.6,
+              "recall@10": 0.6,
+              "ndcg@5": 0.781,
+              "ndcg@10": 0.9713,
+              "top5_files": [
+                "getting-started.md",
+                "sdk-overview.md",
+                "artifacts.md",
+                "pipeline.md",
+                "artifacts.md"
+              ],
+              "top10_files": [
+                "getting-started.md",
+                "sdk-overview.md",
+                "artifacts.md",
+                "pipeline.md",
+                "artifacts.md",
+                "pipeline.md",
+                "artifacts.md",
+                "artifacts.md",
+                "component-spec.md",
+                "control-flow.md"
+              ]
+            },
+            "dense": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.4,
+              "recall@10": 0.4,
+              "ndcg@5": 0.8029,
+              "ndcg@10": 0.8029,
+              "top5_files": [
+                "getting-started.md",
+                "pipeline.md",
+                "pipeline.md",
+                "component-spec.md",
+                "introduction.md"
+              ],
+              "top10_files": [
+                "getting-started.md",
+                "pipeline.md",
+                "pipeline.md",
+                "component-spec.md",
+                "introduction.md",
+                "parameters.md",
+                "build-pipeline.md",
+                "introduction.md",
+                "dsl-recursion.md",
+                "build-pipeline.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.2,
+              "recall@10": 0.4,
+              "ndcg@5": 0.9124,
+              "ndcg@10": 1.0236,
+              "top5_files": [
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "control-flow.md"
+              ],
+              "top10_files": [
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "control-flow.md",
+                "sdk-overview.md",
+                "artifacts.md",
+                "importer-component.md",
+                "getting-started.md",
+                "compose-components-into-pipelines.md"
+              ]
+            }
+          }
+        },
+        "B": {
+          "label": "code_partition",
+          "filter": "source_type == \"code\"",
+          "latencies_ms": {
+            "hybrid": 357.1818330001406,
+            "dense": 148.4024279998266,
+            "sparse": 5.344544999388745
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 0.0,
+              "mrr@10": 0.0,
+              "recall@5": 0.0,
+              "recall@10": 0.0,
+              "ndcg@5": 0.0,
+              "ndcg@10": 0.0,
+              "top5_files": [
+                "getting-started.md",
+                "sdk-overview.md",
+                "artifacts.md",
+                "pipeline.md",
+                "artifacts.md"
+              ],
+              "top10_files": [
+                "getting-started.md",
+                "sdk-overview.md",
+                "artifacts.md",
+                "pipeline.md",
+                "artifacts.md",
+                "pipeline.md",
+                "artifacts.md",
+                "artifacts.md",
+                "component-spec.md",
+                "control-flow.md"
+              ]
+            },
+            "dense": {
+              "mrr@5": 0.0,
+              "mrr@10": 0.0,
+              "recall@5": 0.0,
+              "recall@10": 0.0,
+              "ndcg@5": 0.0,
+              "ndcg@10": 0.0,
+              "top5_files": [
+                "getting-started.md",
+                "pipeline.md",
+                "pipeline.md",
+                "component-spec.md",
+                "introduction.md"
+              ],
+              "top10_files": [
+                "getting-started.md",
+                "pipeline.md",
+                "pipeline.md",
+                "component-spec.md",
+                "introduction.md",
+                "parameters.md",
+                "build-pipeline.md",
+                "introduction.md",
+                "dsl-recursion.md",
+                "build-pipeline.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 0.0,
+              "mrr@10": 0.0,
+              "recall@5": 0.0,
+              "recall@10": 0.0,
+              "ndcg@5": 0.0,
+              "ndcg@10": 0.0,
+              "top5_files": [
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "control-flow.md"
+              ],
+              "top10_files": [
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "control-flow.md",
+                "sdk-overview.md",
+                "artifacts.md",
+                "importer-component.md",
+                "getting-started.md",
+                "compose-components-into-pipelines.md"
+              ]
+            }
+          }
+        },
+        "C": {
+          "label": "docs_partition",
+          "filter": "source_type == \"docs\"",
+          "latencies_ms": {
+            "hybrid": 113.6913900008949,
+            "dense": 141.07612099905964,
+            "sparse": 10.729854000601335
+          },
+          "metrics": {
+            "hybrid": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 1.0,
+              "recall@10": 1.0,
+              "ndcg@5": 0.9727,
+              "ndcg@10": 1.2097,
+              "top5_files": [
+                "getting-started.md",
+                "sdk-overview.md",
+                "artifacts.md",
+                "pipeline.md",
+                "artifacts.md"
+              ],
+              "top10_files": [
+                "getting-started.md",
+                "sdk-overview.md",
+                "artifacts.md",
+                "pipeline.md",
+                "artifacts.md",
+                "pipeline.md",
+                "artifacts.md",
+                "artifacts.md",
+                "component-spec.md",
+                "control-flow.md"
+              ]
+            },
+            "dense": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.6667,
+              "recall@10": 0.6667,
+              "ndcg@5": 1.0,
+              "ndcg@10": 1.0,
+              "top5_files": [
+                "getting-started.md",
+                "pipeline.md",
+                "pipeline.md",
+                "component-spec.md",
+                "introduction.md"
+              ],
+              "top10_files": [
+                "getting-started.md",
+                "pipeline.md",
+                "pipeline.md",
+                "component-spec.md",
+                "introduction.md",
+                "parameters.md",
+                "build-pipeline.md",
+                "introduction.md",
+                "dsl-recursion.md",
+                "build-pipeline.md"
+              ]
+            },
+            "sparse": {
+              "mrr@5": 1.0,
+              "mrr@10": 1.0,
+              "recall@5": 0.3333,
+              "recall@10": 0.6667,
+              "ndcg@5": 1.1364,
+              "ndcg@10": 1.2749,
+              "top5_files": [
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "control-flow.md"
+              ],
+              "top10_files": [
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "artifacts.md",
+                "control-flow.md",
+                "sdk-overview.md",
+                "artifacts.md",
+                "importer-component.md",
+                "getting-started.md",
+                "compose-components-into-pipelines.md"
+              ]
+            }
+          }
+        }
+      },
+      "rank_shifts": {
+        "A_vs_B": {
+          "top5_overlap": 6,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "getting-started.md",
+            "sdk-overview.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "artifacts.md",
+            "component-spec.md",
+            "control-flow.md"
+          ],
+          "b_files": [
+            "getting-started.md",
+            "sdk-overview.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "artifacts.md",
+            "component-spec.md",
+            "control-flow.md"
+          ]
+        },
+        "A_vs_C": {
+          "top5_overlap": 6,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "getting-started.md",
+            "sdk-overview.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "artifacts.md",
+            "component-spec.md",
+            "control-flow.md"
+          ],
+          "b_files": [
+            "getting-started.md",
+            "sdk-overview.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "artifacts.md",
+            "component-spec.md",
+            "control-flow.md"
+          ]
+        },
+        "B_vs_C": {
+          "top5_overlap": 6,
+          "top5_a_only": 0,
+          "top5_b_only": 0,
+          "a_files": [
+            "getting-started.md",
+            "sdk-overview.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "artifacts.md",
+            "component-spec.md",
+            "control-flow.md"
+          ],
+          "b_files": [
+            "getting-started.md",
+            "sdk-overview.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "pipeline.md",
+            "artifacts.md",
+            "artifacts.md",
+            "component-spec.md",
+            "control-flow.md"
+          ]
+        }
+      }
+    }
+  ],
+  "summary": {
+    "A": {
+      "label": "unfiltered",
+      "search_types": {
+        "hybrid": {
+          "mrr@5": 1.0,
+          "mrr@10": 1.0,
+          "recall@5": 0.65,
+          "recall@10": 0.83,
+          "ndcg@5": 0.9319,
+          "ndcg@10": 1.1004
+        },
+        "dense": {
+          "mrr@5": 0.9,
+          "mrr@10": 0.9,
+          "recall@5": 0.57,
+          "recall@10": 0.66,
+          "ndcg@5": 0.765,
+          "ndcg@10": 0.8338
+        },
+        "sparse": {
+          "mrr@5": 1.0,
+          "mrr@10": 1.0,
+          "recall@5": 0.51,
+          "recall@10": 0.63,
+          "ndcg@5": 0.8649,
+          "ndcg@10": 0.9791
+        }
+      }
+    },
+    "B": {
+      "label": "code_partition",
+      "search_types": {
+        "hybrid": {
+          "mrr@5": 0.3,
+          "mrr@10": 0.3583,
+          "recall@5": 0.3,
+          "recall@10": 0.6333,
+          "ndcg@5": 0.3045,
+          "ndcg@10": 0.4516
+        },
+        "dense": {
+          "mrr@5": 0.2,
+          "mrr@10": 0.2,
+          "recall@5": 0.4,
+          "recall@10": 0.4,
+          "ndcg@5": 0.2045,
+          "ndcg@10": 0.2359
+        },
+        "sparse": {
+          "mrr@5": 0.6,
+          "mrr@10": 0.6,
+          "recall@5": 0.4333,
+          "recall@10": 0.5,
+          "ndcg@5": 0.5838,
+          "ndcg@10": 0.6128
+        }
+      }
+    },
+    "C": {
+      "label": "docs_partition",
+      "search_types": {
+        "hybrid": {
+          "mrr@5": 1.0,
+          "mrr@10": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "ndcg@5": 1.1196,
+          "ndcg@10": 1.186
+        },
+        "dense": {
+          "mrr@5": 0.9,
+          "mrr@10": 0.9,
+          "recall@5": 0.7333,
+          "recall@10": 0.9333,
+          "ndcg@5": 0.8842,
+          "ndcg@10": 0.9442
+        },
+        "sparse": {
+          "mrr@5": 0.74,
+          "mrr@10": 0.74,
+          "recall@5": 0.6333,
+          "recall@10": 0.8,
+          "ndcg@5": 0.6697,
+          "ndcg@10": 0.8137
+        }
+      }
+    }
+  }
+}

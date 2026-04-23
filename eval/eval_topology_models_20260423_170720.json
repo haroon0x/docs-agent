@@ -1,0 +1,820 @@
+{
+  "timestamp": "20260423_170720",
+  "source_collection": "docs_rag",
+  "canonical_counts": {
+    "code": 1380,
+    "docs": 1771
+  },
+  "setups": {
+    "A": {
+      "description": "Single collection with partition key and shared MPNet dense model",
+      "topology": "partitioned",
+      "collections": {
+        "all": "rag_all"
+      },
+      "models": {
+        "all": "sentence-transformers/all-mpnet-base-v2"
+      }
+    }
+  },
+  "cases": [
+    {
+      "case_id": "code_katib_controller",
+      "query": "katib controller deployment",
+      "description": "Code-only routing: Katib controller manifests",
+      "route_sources": [
+        "code"
+      ],
+      "relevant_doc_count": 15,
+      "relevant_doc_preview": [
+        "code:/home/g/Documents/contrib/docs-agent/kubeflow-manifests/applications/katib/upstream/components/controller/controller.yaml",
+        "code:/home/g/Documents/contrib/docs-agent/kubeflow-manifests/applications/katib/upstream/components/controller/rbac.yaml",
+        "code:/home/g/Documents/contrib/docs-agent/kubeflow-manifests/applications/katib/upstream/components/controller/service.yaml",
+        "code:/home/g/Documents/contrib/docs-agent/kubeflow-manifests/applications/katib/upstream/components/controller/trial-templates.yaml",
+        "code:/home/g/Documents/contrib/docs-agent/kubeflow-manifests/applications/katib/upstream/components/webhook/webhooks.yaml"
+      ],
+      "results": {
+        "A": {
+          "description": "Single collection with partition key and shared MPNet dense model",
+          "searches": {
+            "dense": {
+              "case_id": "code_katib_controller",
+              "search_type": "dense",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "sparse": {
+              "case_id": "code_katib_controller",
+              "search_type": "sparse",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "hybrid": {
+              "case_id": "code_katib_controller",
+              "search_type": "hybrid",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "code_scale_to_zero",
+      "query": "Knative serving scale to zero configuration",
+      "description": "Code-only routing: Knative/KServe scale-to-zero config",
+      "route_sources": [
+        "code"
+      ],
+      "relevant_doc_count": 1,
+      "relevant_doc_preview": [
+        "code:/home/g/Documents/contrib/docs-agent/kubeflow-manifests/common/knative/knative-serving/base/upstream/serving-core.yaml"
+      ],
+      "results": {
+        "A": {
+          "description": "Single collection with partition key and shared MPNet dense model",
+          "searches": {
+            "dense": {
+              "case_id": "code_scale_to_zero",
+              "search_type": "dense",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "sparse": {
+              "case_id": "code_scale_to_zero",
+              "search_type": "sparse",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "hybrid": {
+              "case_id": "code_scale_to_zero",
+              "search_type": "hybrid",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "docs_katib_config",
+      "query": "What is Katib and how do you configure it?",
+      "description": "Docs-only routing: Katib conceptual and config docs",
+      "route_sources": [
+        "docs"
+      ],
+      "relevant_doc_count": 4,
+      "relevant_doc_preview": [
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/katib/installation.md",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/katib/reference/architecture.md",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/katib/user-guides/katib-config.md",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/started/architecture.md"
+      ],
+      "results": {
+        "A": {
+          "description": "Single collection with partition key and shared MPNet dense model",
+          "searches": {
+            "dense": {
+              "case_id": "docs_katib_config",
+              "search_type": "dense",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "sparse": {
+              "case_id": "docs_katib_config",
+              "search_type": "sparse",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "hybrid": {
+              "case_id": "docs_katib_config",
+              "search_type": "hybrid",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "docs_scale_to_zero",
+      "query": "How does scale to zero work in KServe?",
+      "description": "Docs-only routing: KServe scale-to-zero docs",
+      "route_sources": [
+        "docs"
+      ],
+      "relevant_doc_count": 1,
+      "relevant_doc_preview": [
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/kserve/introduction.md"
+      ],
+      "results": {
+        "A": {
+          "description": "Single collection with partition key and shared MPNet dense model",
+          "searches": {
+            "dense": {
+              "case_id": "docs_scale_to_zero",
+              "search_type": "dense",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "sparse": {
+              "case_id": "docs_scale_to_zero",
+              "search_type": "sparse",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "hybrid": {
+              "case_id": "docs_scale_to_zero",
+              "search_type": "hybrid",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "mixed_storage",
+      "query": "PVC volume mount storage config",
+      "description": "Mixed routing: storage configs across code and docs",
+      "route_sources": [
+        "code",
+        "docs"
+      ],
+      "relevant_doc_count": 4,
+      "relevant_doc_preview": [
+        "code:/home/g/Documents/contrib/docs-agent/kubeflow-manifests/applications/pipeline/upstream/third-party/seaweedfs/base/seaweedfs/seaweedfs-pvc.yaml",
+        "code:/home/g/Documents/contrib/docs-agent/kubeflow-manifests/tests/metrics-server_resource_table.py",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/pipelines/legacy-v1/sdk/manipulate-resources.md",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/pipelines/user-guides/core-functions/platform-specific-features.md"
+      ],
+      "results": {
+        "A": {
+          "description": "Single collection with partition key and shared MPNet dense model",
+          "searches": {
+            "dense": {
+              "case_id": "mixed_storage",
+              "search_type": "dense",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "sparse": {
+              "case_id": "mixed_storage",
+              "search_type": "sparse",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "hybrid": {
+              "case_id": "mixed_storage",
+              "search_type": "hybrid",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "mixed_pipeline_dsl",
+      "query": "kubeflow pipeline DSL syntax",
+      "description": "Mixed routing: DSL examples in code and docs",
+      "route_sources": [
+        "code",
+        "docs"
+      ],
+      "relevant_doc_count": 10,
+      "relevant_doc_preview": [
+        "code:/home/g/Documents/contrib/docs-agent/kubeflow-manifests/tests/pipeline_run_and_wait_kubeflow.py",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/katib/getting-started.md",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/model-registry/getting-started.md",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/pipelines/concepts/pipeline.md",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/pipelines/getting-started.md"
+      ],
+      "results": {
+        "A": {
+          "description": "Single collection with partition key and shared MPNet dense model",
+          "searches": {
+            "dense": {
+              "case_id": "mixed_pipeline_dsl",
+              "search_type": "dense",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "sparse": {
+              "case_id": "mixed_pipeline_dsl",
+              "search_type": "sparse",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "hybrid": {
+              "case_id": "mixed_pipeline_dsl",
+              "search_type": "hybrid",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "mixed_component_definition",
+      "query": "KFP pipeline component definition",
+      "description": "Mixed routing: component implementation and docs",
+      "route_sources": [
+        "code",
+        "docs"
+      ],
+      "relevant_doc_count": 4,
+      "relevant_doc_preview": [
+        "code:/home/g/Documents/contrib/docs-agent/kubeflow-manifests/tests/pipeline_run_and_wait_kubeflow.py",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/pipelines/concepts/pipeline.md",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/pipelines/legacy-v1/sdk/component-development.md",
+        "docs:/tmp/kubeflow-website-src/content/en/docs/components/pipelines/reference/component-spec.md"
+      ],
+      "results": {
+        "A": {
+          "description": "Single collection with partition key and shared MPNet dense model",
+          "searches": {
+            "dense": {
+              "case_id": "mixed_component_definition",
+              "search_type": "dense",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "sparse": {
+              "case_id": "mixed_component_definition",
+              "search_type": "sparse",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            },
+            "hybrid": {
+              "case_id": "mixed_component_definition",
+              "search_type": "hybrid",
+              "metrics": {
+                "mrr": 0.0,
+                "recall": 0.0,
+                "ndcg": 0.0,
+                "source_purity": null,
+                "source_coverage": 0.0,
+                "top_hits": []
+              },
+              "embed_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "db_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              },
+              "total_latency_ms": {
+                "mean": null,
+                "p50": null,
+                "p95": null
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "summary": {
+    "A": {
+      "setup": "A",
+      "search_types": {
+        "dense": {
+          "avg_mrr": 0.0,
+          "avg_recall": 0.0,
+          "avg_ndcg": 0.0,
+          "avg_source_purity": null,
+          "avg_source_coverage": 0.0,
+          "embed_latency_ms": {
+            "mean": null,
+            "p50": null,
+            "p95": null
+          },
+          "db_latency_ms": {
+            "mean": null,
+            "p50": null,
+            "p95": null
+          },
+          "total_latency_ms": {
+            "mean": null,
+            "p50": null,
+            "p95": null
+          }
+        },
+        "sparse": {
+          "avg_mrr": 0.0,
+          "avg_recall": 0.0,
+          "avg_ndcg": 0.0,
+          "avg_source_purity": null,
+          "avg_source_coverage": 0.0,
+          "embed_latency_ms": {
+            "mean": null,
+            "p50": null,
+            "p95": null
+          },
+          "db_latency_ms": {
+            "mean": null,
+            "p50": null,
+            "p95": null
+          },
+          "total_latency_ms": {
+            "mean": null,
+            "p50": null,
+            "p95": null
+          }
+        },
+        "hybrid": {
+          "avg_mrr": 0.0,
+          "avg_recall": 0.0,
+          "avg_ndcg": 0.0,
+          "avg_source_purity": null,
+          "avg_source_coverage": 0.0,
+          "embed_latency_ms": {
+            "mean": null,
+            "p50": null,
+            "p95": null
+          },
+          "db_latency_ms": {
+            "mean": null,
+            "p50": null,
+            "p95": null
+          },
+          "total_latency_ms": {
+            "mean": null,
+            "p50": null,
+            "p95": null
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "All benchmark collections are rebuilt from the same exported canonical corpus.",
+    "Partition-key acceleration only applies when the filter uses one specific partition-key value.",
+    "BM25 remains the sparse baseline in this script."
+  ]
+}

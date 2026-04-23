@@ -1,0 +1,498 @@
+{
+  "eval_id": "eval1_code_only",
+  "timestamp": "20260422_115636",
+  "collection": "docs_rag",
+  "model": "sentence-transformers/all-mpnet-base-v2",
+  "entity_count": "unknown",
+  "queries": [
+    {
+      "query": "katib controller deployment",
+      "description": "semantic/dense test \u2014 should find katib controller configs",
+      "partition_filter": "source_type == \"code\"",
+      "results": {
+        "dense": {
+          "hits": [
+            {
+              "file": "rbac.yaml",
+              "source": "code",
+              "distance": 0.5
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.3333333432674408
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.25
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.20000000298023224
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.1666666716337204
+            }
+          ],
+          "latency_ms": 32.8
+        },
+        "sparse": {
+          "hits": [
+            {
+              "file": "controller.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.01587301678955555
+            },
+            {
+              "file": "rbac.yaml",
+              "source": "code",
+              "distance": 0.015625
+            },
+            {
+              "file": "db-manager.yaml",
+              "source": "code",
+              "distance": 0.015384615398943424
+            }
+          ],
+          "latency_ms": 3.46
+        },
+        "hybrid": {
+          "hits": [
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.0317540317773819
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.03125763311982155
+            },
+            {
+              "file": "controller.yaml",
+              "source": "code",
+              "distance": 0.03109932318329811
+            },
+            {
+              "file": "rbac.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.016129031777381897
+            }
+          ],
+          "latency_ms": 10.53
+        }
+      }
+    },
+    {
+      "query": "InferenceService scaleToZeroGracePeriod",
+      "description": "keyword/BM25 test \u2014 KServe CRD identifiers",
+      "partition_filter": "source_type == \"code\"",
+      "results": {
+        "dense": {
+          "hits": [
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.5
+            },
+            {
+              "file": "kserve_kubeflow.yaml",
+              "source": "code",
+              "distance": 0.3333333432674408
+            },
+            {
+              "file": "mt-channel-broker.yaml",
+              "source": "code",
+              "distance": 0.25
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.20000000298023224
+            },
+            {
+              "file": "eventing-core.yaml",
+              "source": "code",
+              "distance": 0.1666666716337204
+            }
+          ],
+          "latency_ms": 9.02
+        },
+        "sparse": {
+          "hits": [
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "kserve_kubeflow.yaml",
+              "source": "code",
+              "distance": 0.01587301678955555
+            },
+            {
+              "file": "kserve_kubeflow.yaml",
+              "source": "code",
+              "distance": 0.015625
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.015384615398943424
+            }
+          ],
+          "latency_ms": 4.22
+        },
+        "hybrid": {
+          "hits": [
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.02985074557363987
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "kserve_kubeflow.yaml",
+              "source": "code",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.016129031777381897
+            }
+          ],
+          "latency_ms": 8.74
+        }
+      }
+    },
+    {
+      "query": "KFP pipeline component definition",
+      "description": "hybrid RRF test \u2014 Kubeflow Pipelines DSL",
+      "partition_filter": "source_type == \"code\"",
+      "results": {
+        "dense": {
+          "hits": [
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.5
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.3333333432674408
+            },
+            {
+              "file": "kfp-launcher-configmap.yaml",
+              "source": "code",
+              "distance": 0.25
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.20000000298023224
+            },
+            {
+              "file": "api-server-patch.yaml",
+              "source": "code",
+              "distance": 0.1666666716337204
+            }
+          ],
+          "latency_ms": 6.69
+        },
+        "sparse": {
+          "hits": [
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.01587301678955555
+            },
+            {
+              "file": "kfp-launcher-configmap.yaml",
+              "source": "code",
+              "distance": 0.015625
+            },
+            {
+              "file": "api-server-patch.yaml",
+              "source": "code",
+              "distance": 0.015384615398943424
+            }
+          ],
+          "latency_ms": 4.39
+        },
+        "hybrid": {
+          "hits": [
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.032522473484277725
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.0317540317773819
+            },
+            {
+              "file": "kfp-launcher-configmap.yaml",
+              "source": "code",
+              "distance": 0.0314980149269104
+            },
+            {
+              "file": "api-server-patch.yaml",
+              "source": "code",
+              "distance": 0.03076923079788685
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            }
+          ],
+          "latency_ms": 5.76
+        }
+      }
+    },
+    {
+      "query": "PVC volume mount storage config",
+      "description": "partition filter test \u2014 code only, storage configs",
+      "partition_filter": "source_type == \"code\"",
+      "results": {
+        "dense": {
+          "hits": [
+            {
+              "file": "_v1alpha1_pvcviewer.yaml",
+              "source": "code",
+              "distance": 0.5
+            },
+            {
+              "file": "seaweedfs-pvc.yaml",
+              "source": "code",
+              "distance": 0.3333333432674408
+            },
+            {
+              "file": "pg-pvc.yaml",
+              "source": "code",
+              "distance": 0.25
+            },
+            {
+              "file": "mysql-pv-claim.yaml",
+              "source": "code",
+              "distance": 0.20000000298023224
+            },
+            {
+              "file": "cluster-role.yaml",
+              "source": "code",
+              "distance": 0.1666666716337204
+            }
+          ],
+          "latency_ms": 8.83
+        },
+        "sparse": {
+          "hits": [
+            {
+              "file": "prometheus-deployment.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "metrics-server_resource_table.py",
+              "source": "code",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "metrics-server_resource_table.py",
+              "source": "code",
+              "distance": 0.01587301678955555
+            },
+            {
+              "file": "cluster-role.yaml",
+              "source": "code",
+              "distance": 0.015625
+            },
+            {
+              "file": "pg-pvc.yaml",
+              "source": "code",
+              "distance": 0.015384615398943424
+            }
+          ],
+          "latency_ms": 4.28
+        },
+        "hybrid": {
+          "hits": [
+            {
+              "file": "metrics-server_resource_table.py",
+              "source": "code",
+              "distance": 0.03128054738044739
+            },
+            {
+              "file": "seaweedfs-pvc.yaml",
+              "source": "code",
+              "distance": 0.03128054738044739
+            },
+            {
+              "file": "pg-pvc.yaml",
+              "source": "code",
+              "distance": 0.03125763311982155
+            },
+            {
+              "file": "cluster-role.yaml",
+              "source": "code",
+              "distance": 0.03100961446762085
+            },
+            {
+              "file": "metrics-server_resource_table.py",
+              "source": "code",
+              "distance": 0.030365770682692528
+            }
+          ],
+          "latency_ms": 9.94
+        }
+      }
+    },
+    {
+      "query": "kubeflow pipeline DSL syntax",
+      "description": "cross-type retrieval test \u2014 both YAML and Python",
+      "partition_filter": "source_type == \"code\"",
+      "results": {
+        "dense": {
+          "hits": [
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.5
+            },
+            {
+              "file": "pipelines.kubeflow.org_pipelines.yaml",
+              "source": "code",
+              "distance": 0.3333333432674408
+            },
+            {
+              "file": "ml-pipeline.yaml",
+              "source": "code",
+              "distance": 0.25
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.20000000298023224
+            },
+            {
+              "file": "deployment-patch.yaml",
+              "source": "code",
+              "distance": 0.1666666716337204
+            }
+          ],
+          "latency_ms": 7.2
+        },
+        "sparse": {
+          "hits": [
+            {
+              "file": "pipeline_run_and_wait_kubeflow.py",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "pipeline_run_and_wait_kubeflow.py",
+              "source": "code",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "istio-authorization-config.yaml",
+              "source": "code",
+              "distance": 0.01587301678955555
+            },
+            {
+              "file": "istio-authorization-config.yaml",
+              "source": "code",
+              "distance": 0.015625
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.015384615398943424
+            }
+          ],
+          "latency_ms": 3.83
+        },
+        "hybrid": {
+          "hits": [
+            {
+              "file": "pipeline_run_and_wait_kubeflow.py",
+              "source": "code",
+              "distance": 0.03154495730996132
+            },
+            {
+              "file": "deployment-patch.yaml",
+              "source": "code",
+              "distance": 0.03030998818576336
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "pipelines.kubeflow.org_pipelines.yaml",
+              "source": "code",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "pipeline_run_and_wait_kubeflow.py",
+              "source": "code",
+              "distance": 0.016129031777381897
+            }
+          ],
+          "latency_ms": 7.1
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total_queries": 5,
+    "avg_latency_ms": 8.45
+  }
+}

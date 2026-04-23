@@ -1,0 +1,498 @@
+{
+  "eval_id": "eval2_with_docs",
+  "timestamp": "20260422_122745",
+  "collection": "docs_rag",
+  "model": "sentence-transformers/all-mpnet-base-v2",
+  "entity_count": "unknown",
+  "queries": [
+    {
+      "query": "katib controller deployment",
+      "description": "semantic/dense test \u2014 should find katib controller configs",
+      "partition_filter": null,
+      "results": {
+        "dense": {
+          "hits": [
+            {
+              "file": "installation-options.md",
+              "source": "docs",
+              "distance": 0.5
+            },
+            {
+              "file": "katib-config.md",
+              "source": "docs",
+              "distance": 0.3333333432674408
+            },
+            {
+              "file": "installation.md",
+              "source": "docs",
+              "distance": 0.25
+            },
+            {
+              "file": "installation-options.md",
+              "source": "docs",
+              "distance": 0.20000000298023224
+            },
+            {
+              "file": "katib-config.md",
+              "source": "docs",
+              "distance": 0.1666666716337204
+            }
+          ],
+          "latency_ms": 36.13
+        },
+        "sparse": {
+          "hits": [
+            {
+              "file": "controller.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "architecture.md",
+              "source": "docs",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.01587301678955555
+            },
+            {
+              "file": "kustomization.yaml",
+              "source": "code",
+              "distance": 0.015625
+            },
+            {
+              "file": "env-variables.md",
+              "source": "docs",
+              "distance": 0.015384615398943424
+            }
+          ],
+          "latency_ms": 10.37
+        },
+        "hybrid": {
+          "hits": [
+            {
+              "file": "katib-config.md",
+              "source": "docs",
+              "distance": 0.03083491325378418
+            },
+            {
+              "file": "architecture.md",
+              "source": "docs",
+              "distance": 0.03083491325378418
+            },
+            {
+              "file": "env-variables.md",
+              "source": "docs",
+              "distance": 0.03053613007068634
+            },
+            {
+              "file": "controller.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "installation-options.md",
+              "source": "docs",
+              "distance": 0.016393441706895828
+            }
+          ],
+          "latency_ms": 26.29
+        }
+      }
+    },
+    {
+      "query": "InferenceService scaleToZeroGracePeriod",
+      "description": "keyword/BM25 test \u2014 KServe CRD identifiers",
+      "partition_filter": null,
+      "results": {
+        "dense": {
+          "hits": [
+            {
+              "file": "webapp.md",
+              "source": "docs",
+              "distance": 0.5
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.3333333432674408
+            },
+            {
+              "file": "kserve_kubeflow.yaml",
+              "source": "code",
+              "distance": 0.25
+            },
+            {
+              "file": "mt-channel-broker.yaml",
+              "source": "code",
+              "distance": 0.20000000298023224
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.1666666716337204
+            }
+          ],
+          "latency_ms": 14.1
+        },
+        "sparse": {
+          "hits": [
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "kserve_kubeflow.yaml",
+              "source": "code",
+              "distance": 0.01587301678955555
+            },
+            {
+              "file": "kserve_kubeflow.yaml",
+              "source": "code",
+              "distance": 0.015625
+            },
+            {
+              "file": "webapp.md",
+              "source": "docs",
+              "distance": 0.015384615398943424
+            }
+          ],
+          "latency_ms": 7.72
+        },
+        "hybrid": {
+          "hits": [
+            {
+              "file": "webapp.md",
+              "source": "docs",
+              "distance": 0.03109932318329811
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "kserve.yaml",
+              "source": "code",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "kserve_kubeflow.yaml",
+              "source": "code",
+              "distance": 0.01587301678955555
+            }
+          ],
+          "latency_ms": 19.94
+        }
+      }
+    },
+    {
+      "query": "KFP pipeline component definition",
+      "description": "hybrid RRF test \u2014 Kubeflow Pipelines DSL",
+      "partition_filter": null,
+      "results": {
+        "dense": {
+          "hits": [
+            {
+              "file": "component-development.md",
+              "source": "docs",
+              "distance": 0.5
+            },
+            {
+              "file": "pipeline.md",
+              "source": "docs",
+              "distance": 0.3333333432674408
+            },
+            {
+              "file": "component-spec.md",
+              "source": "docs",
+              "distance": 0.25
+            },
+            {
+              "file": "_index.md",
+              "source": "docs",
+              "distance": 0.20000000298023224
+            },
+            {
+              "file": "pipeline-root.md",
+              "source": "docs",
+              "distance": 0.1666666716337204
+            }
+          ],
+          "latency_ms": 14.13
+        },
+        "sparse": {
+          "hits": [
+            {
+              "file": "_index.md",
+              "source": "docs",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "cli.md",
+              "source": "docs",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "ir-yaml.md",
+              "source": "docs",
+              "distance": 0.01587301678955555
+            },
+            {
+              "file": "component.md",
+              "source": "docs",
+              "distance": 0.015625
+            },
+            {
+              "file": "component.md",
+              "source": "docs",
+              "distance": 0.015384615398943424
+            }
+          ],
+          "latency_ms": 11.49
+        },
+        "hybrid": {
+          "hits": [
+            {
+              "file": "_index.md",
+              "source": "docs",
+              "distance": 0.03201844170689583
+            },
+            {
+              "file": "component-development.md",
+              "source": "docs",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "pipeline.md",
+              "source": "docs",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "cli.md",
+              "source": "docs",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "component-spec.md",
+              "source": "docs",
+              "distance": 0.01587301678955555
+            }
+          ],
+          "latency_ms": 25.72
+        }
+      }
+    },
+    {
+      "query": "PVC volume mount storage config",
+      "description": "partition filter test \u2014 code only, storage configs",
+      "partition_filter": null,
+      "results": {
+        "dense": {
+          "hits": [
+            {
+              "file": "manipulate-resources.md",
+              "source": "docs",
+              "distance": 0.5
+            },
+            {
+              "file": "manipulate-resources.md",
+              "source": "docs",
+              "distance": 0.3333333432674408
+            },
+            {
+              "file": "_v1alpha1_pvcviewer.yaml",
+              "source": "code",
+              "distance": 0.25
+            },
+            {
+              "file": "seaweedfs-pvc.yaml",
+              "source": "code",
+              "distance": 0.20000000298023224
+            },
+            {
+              "file": "pg-pvc.yaml",
+              "source": "code",
+              "distance": 0.1666666716337204
+            }
+          ],
+          "latency_ms": 15.14
+        },
+        "sparse": {
+          "hits": [
+            {
+              "file": "platform-specific-features.md",
+              "source": "docs",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "manipulate-resources.md",
+              "source": "docs",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "artifacts.md",
+              "source": "docs",
+              "distance": 0.01587301678955555
+            },
+            {
+              "file": "resume-experiment.md",
+              "source": "docs",
+              "distance": 0.015625
+            },
+            {
+              "file": "manipulate-resources.md",
+              "source": "docs",
+              "distance": 0.015384615398943424
+            }
+          ],
+          "latency_ms": 12.45
+        },
+        "hybrid": {
+          "hits": [
+            {
+              "file": "manipulate-resources.md",
+              "source": "docs",
+              "distance": 0.032522473484277725
+            },
+            {
+              "file": "platform-specific-features.md",
+              "source": "docs",
+              "distance": 0.03131881356239319
+            },
+            {
+              "file": "manipulate-resources.md",
+              "source": "docs",
+              "distance": 0.02967032976448536
+            },
+            {
+              "file": "runtime-patches.md",
+              "source": "docs",
+              "distance": 0.02964426949620247
+            },
+            {
+              "file": "writing-sparkapplication.md",
+              "source": "docs",
+              "distance": 0.02943722903728485
+            }
+          ],
+          "latency_ms": 22.78
+        }
+      }
+    },
+    {
+      "query": "kubeflow pipeline DSL syntax",
+      "description": "cross-type retrieval test \u2014 both YAML and Python",
+      "partition_filter": null,
+      "results": {
+        "dense": {
+          "hits": [
+            {
+              "file": "getting-started.md",
+              "source": "docs",
+              "distance": 0.5
+            },
+            {
+              "file": "pipeline.md",
+              "source": "docs",
+              "distance": 0.3333333432674408
+            },
+            {
+              "file": "pipeline.md",
+              "source": "docs",
+              "distance": 0.25
+            },
+            {
+              "file": "component-spec.md",
+              "source": "docs",
+              "distance": 0.20000000298023224
+            },
+            {
+              "file": "introduction.md",
+              "source": "docs",
+              "distance": 0.1666666716337204
+            }
+          ],
+          "latency_ms": 12.84
+        },
+        "sparse": {
+          "hits": [
+            {
+              "file": "artifacts.md",
+              "source": "docs",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "artifacts.md",
+              "source": "docs",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "artifacts.md",
+              "source": "docs",
+              "distance": 0.01587301678955555
+            },
+            {
+              "file": "artifacts.md",
+              "source": "docs",
+              "distance": 0.015625
+            },
+            {
+              "file": "control-flow.md",
+              "source": "docs",
+              "distance": 0.015384615398943424
+            }
+          ],
+          "latency_ms": 6.17
+        },
+        "hybrid": {
+          "hits": [
+            {
+              "file": "getting-started.md",
+              "source": "docs",
+              "distance": 0.030886195600032806
+            },
+            {
+              "file": "artifacts.md",
+              "source": "docs",
+              "distance": 0.016393441706895828
+            },
+            {
+              "file": "pipeline.md",
+              "source": "docs",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "artifacts.md",
+              "source": "docs",
+              "distance": 0.016129031777381897
+            },
+            {
+              "file": "pipeline.md",
+              "source": "docs",
+              "distance": 0.01587301678955555
+            }
+          ],
+          "latency_ms": 12.25
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total_queries": 5,
+    "avg_latency_ms": 16.5
+  }
+}
