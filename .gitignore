@@ -218,3 +218,6 @@ feast_repo/registry.db
 # Compiled pipeline YAML
 pipelines/*.yaml
 !pipelines/README.md
+# Local reference data
+kubeflow-manifests/
+milvus docs/
